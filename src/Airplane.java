@@ -117,5 +117,21 @@ public class Airplane extends AirObject {
 	public void setFlightNumber(int fn) {
 		flightNumber = fn;
 	}
+	
+	public String toString() {
+		StringBuilder output = new StringBuilder();
+		output.append("(Airplane ");
+		output.append(this.getName() + " ");
+		output.append(this.x + " ");
+		output.append(this.y + " ");
+		output.append(this.z + " ");
+		output.append(this.xWidth + " ");
+		output.append(this.yWidth + " ");
+		output.append(this.zWidth + " ");
+		output.append(this.carrier + " ");
+		output.append(this.flightNumber + " ");
+		output.append(this.engines + ")");
+		return output.toString();
+	}
 
 }

@@ -38,6 +38,7 @@ public class AirControl {
         // This is the main file for the program.
     		String inputFile = args[0];
     		Parser p = new Parser();
-    		p.parse(inputFile);
+    		SkipList<AirObject, Object> sl = new SkipList<AirObject, Object>();
+    		p.parse(inputFile, sl);
     }
 }

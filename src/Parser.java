@@ -4,7 +4,9 @@ import java.util.Scanner;
 
 public class Parser {
 	
-	public void parse(String filename) {
+	public static final int MAX_BOX_WIDTH = 1024;
+	
+	public void parse(String filename, SkipList<AirObject, Object> sl) {
 		String[] array;
 		File file = new File(filename);
 		try {
@@ -15,11 +17,9 @@ public class Parser {
 					//System.out.println(line);
 					array = line.split("\\s+");
 					if (array[0].equals("add")) {
-						for (String s: array) {
-							System.out.print(s + ",");
-						}
-						System.out.println();
-						AirObject ao;
+						Boolean success = false;
+						Boolean valid;
+						//AirObject ao;
 						String name = array[2];
 						int x = Integer.parseInt(array[3]);
 						int y = Integer.parseInt(array[4]);
@@ -27,23 +27,98 @@ public class Parser {
 						int xWidth = Integer.parseInt(array[6]);
 						int yWidth = Integer.parseInt(array[7]);
 						int zWidth = Integer.parseInt(array[8]);
-						if (array[1].equals("airplane")) {
-							ao = new Airplane(name);
-							//ao.setCarrier(array[9]);
+						String box = "(" + x + " " + y + " " + z + " " + 
+									xWidth + " " + yWidth + " " + zWidth + ")";
+						if (xWidth <= 0 || yWidth <= 0 || zWidth == 0) {
+							System.out.print("Bad box " + box + ". ");
+							System.out.println("All widths must be positive.");
+							valid = false;
 						}
-						else if (array[1].equals("balloon")) {
-							ao = new Balloon(name);
-						}
-						else if (array[1].equals("bird")) {
-							ao = new Bird(name);
-						}
-						else if (array[1].equals("drone")) {
-							ao = new Drone(name);
+						else if (xWidth > MAX_BOX_WIDTH || yWidth > MAX_BOX_WIDTH 
+								|| zWidth > MAX_BOX_WIDTH) {
+							System.out.print("Bad box " + box + ". ");
+							System.out.println("All boxes must be entirely within the world box.");
+							valid = false;
 						}
 						else {
-							ao = new Rocket(name);
+							valid = true;
 						}
-						ao.setX(x);
+						if (array[1].equals("airplane")) {
+							//Airplane ap = (Airplane) ao;
+							Airplane ap = new Airplane(name);
+							ap.setCarrier(array[9]);
+							ap.setFlightNumber(Integer.parseInt(array[10]));
+							ap.setEngines(Integer.parseInt(array[11]));
+							ap.setX(x);
+							ap.setY(y);
+							ap.setZ(z);
+							ap.setXWidth(xWidth);
+							ap.setYWidth(yWidth);
+							ap.setZWidth(zWidth);
+							if (valid)
+								success = sl.insert(ap);
+						}
+						else if (array[1].equals("balloon")) {
+							//Balloon b = (Balloon) ao;
+							Balloon b = new Balloon(name);
+							b.setType(array[9]);
+							b.setAscentRate(Integer.parseInt(array[10]));
+							b.setX(x);
+							b.setY(y);
+							b.setZ(z);
+							b.setXWidth(xWidth);
+							b.setYWidth(yWidth);
+							b.setZWidth(zWidth);
+							if (valid)
+								success = sl.insert(b);
+						}
+						else if (array[1].equals("bird")) {
+							Bird bd = new Bird(name);
+							bd.setType(array[9]);
+							bd.setNumber(Integer.parseInt(array[10]));
+							bd.setX(x);
+							bd.setY(y);
+							bd.setZ(z);
+							bd.setXWidth(xWidth);
+							bd.setYWidth(yWidth);
+							bd.setZWidth(zWidth);
+							if (valid)
+								success = sl.insert(bd);
+						}
+						else if (array[1].equals("drone")) {
+							//Drone d = (Drone) ao;
+							Drone d = new Drone(name);
+							d.setBrand(array[9]);
+							d.setEngines(Integer.parseInt(array[10]));
+							d.setX(x);
+							d.setY(y);
+							d.setZ(z);
+							d.setXWidth(xWidth);
+							d.setYWidth(yWidth);
+							d.setZWidth(zWidth);
+							if (valid)
+								success = sl.insert(d);
+						}
+						else {
+							Rocket r = new Rocket(name);
+							r.setAscentRate(Integer.parseInt(array[9]));
+							r.setTrajectory(Double.parseDouble(array[10]));
+							r.setX(x);
+							r.setY(y);
+							r.setZ(z);
+							r.setXWidth(xWidth);
+							r.setYWidth(yWidth);
+							r.setZWidth(zWidth);
+							if (valid)
+								success = sl.insert(r);
+						}
+						if (valid) {
+							if (success)
+								System.out.println(name + " has been added to the database");
+							else
+								System.out.println("Duplicate object names not permitted: |" + name + "|");
+						}
+						/*ao.setX(x);
 						ao.setY(y);
 						ao.setZ(z);
 						ao.setXWidth(xWidth);
@@ -54,13 +129,15 @@ public class Parser {
 						System.out.println("z: " + ao.getZorig());
 						System.out.println("xWidth: " + ao.getXwidth());
 						System.out.println("yWidth: " + ao.getYwidth());
-						System.out.println("zWidth: " + ao.getZwidth());
+						System.out.println("zWidth: " + ao.getZwidth());*/
 					}
 					else if (array[0].equals("delete")) {
 						
 					}
 					else if (array[0].equals("print")) {
-						
+						if (array[1].equals("skiplist")) {
+							sl.dump();
+						}
 					}
 					else if (array[0].equals("rangeprint")) {
 						

@@ -109,5 +109,20 @@ public class Drone extends AirObject {
 	public void setEngines(int e) {
 		engines = e;
 	}
+	
+	public String toString() {
+		StringBuilder output = new StringBuilder();
+		output.append("(Drone ");
+		output.append(this.getName() + " ");
+		output.append(this.x + " ");
+		output.append(this.y + " ");
+		output.append(this.z + " ");
+		output.append(this.xWidth + " ");
+		output.append(this.yWidth + " ");
+		output.append(this.zWidth + " ");
+		output.append(this.brand + " ");
+		output.append(this.engines + ")");
+		return output.toString();
+	}
 
 }

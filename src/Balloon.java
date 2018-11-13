@@ -109,4 +109,19 @@ public class Balloon extends AirObject {
     public void setAscentRate(int ar) {
     		ascentRate = ar;
     }
+    
+    public String toString() {
+		StringBuilder output = new StringBuilder();
+		output.append("(Balloon ");
+		output.append(this.getName() + " ");
+		output.append(this.x + " ");
+		output.append(this.y + " ");
+		output.append(this.z + " ");
+		output.append(this.xWidth + " ");
+		output.append(this.yWidth + " ");
+		output.append(this.zWidth + " ");
+		output.append(this.type + " ");
+		output.append(this.ascentRate + ")");
+		return output.toString();
+	}
 }

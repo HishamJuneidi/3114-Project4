@@ -109,5 +109,20 @@ public class Bird extends AirObject {
 	public void setType(String t) {
 		type = t;
 	}
+	
+	public String toString() {
+		StringBuilder output = new StringBuilder();
+		output.append("(Bird ");
+		output.append(this.getName() + " ");
+		output.append(this.x + " ");
+		output.append(this.y + " ");
+		output.append(this.z + " ");
+		output.append(this.xWidth + " ");
+		output.append(this.yWidth + " ");
+		output.append(this.zWidth + " ");
+		output.append(this.type + " ");
+		output.append(this.number + ")");
+		return output.toString();
+	}
 
 }
