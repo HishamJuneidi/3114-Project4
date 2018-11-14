@@ -56,7 +56,7 @@ public class Parser {
 							ap.setYWidth(yWidth);
 							ap.setZWidth(zWidth);
 							if (valid)
-								success = sl.insert(ap);
+								success = sl.insert(ap, ap.getName());
 						}
 						else if (array[1].equals("balloon")) {
 							//Balloon b = (Balloon) ao;
@@ -70,7 +70,7 @@ public class Parser {
 							b.setYWidth(yWidth);
 							b.setZWidth(zWidth);
 							if (valid)
-								success = sl.insert(b);
+								success = sl.insert(b, b.getName());
 						}
 						else if (array[1].equals("bird")) {
 							Bird bd = new Bird(name);
@@ -83,7 +83,7 @@ public class Parser {
 							bd.setYWidth(yWidth);
 							bd.setZWidth(zWidth);
 							if (valid)
-								success = sl.insert(bd);
+								success = sl.insert(bd, bd.getName());
 						}
 						else if (array[1].equals("drone")) {
 							//Drone d = (Drone) ao;
@@ -97,7 +97,7 @@ public class Parser {
 							d.setYWidth(yWidth);
 							d.setZWidth(zWidth);
 							if (valid)
-								success = sl.insert(d);
+								success = sl.insert(d, d.getName());
 						}
 						else {
 							Rocket r = new Rocket(name);
@@ -110,7 +110,7 @@ public class Parser {
 							r.setYWidth(yWidth);
 							r.setZWidth(zWidth);
 							if (valid)
-								success = sl.insert(r);
+								success = sl.insert(r, r.getName());
 						}
 						if (valid) {
 							if (success)
@@ -132,15 +132,25 @@ public class Parser {
 						System.out.println("zWidth: " + ao.getZwidth());*/
 					}
 					else if (array[0].equals("delete")) {
-						
+						Boolean deleted = sl.delete(array[1]);
+						if (deleted) {
+							System.out.print("Deleted |" + array[1] + "|");
+							System.out.println(" from the database");
+						}
+						else {
+							
+						}
 					}
 					else if (array[0].equals("print")) {
 						if (array[1].equals("skiplist")) {
 							sl.dump();
 						}
+						else if (array[1].equals("object")) {
+							sl.printObject(array[2]);
+						}
 					}
 					else if (array[0].equals("rangeprint")) {
-						
+						sl.rangePrint(array[1], array[2]);
 					}
 					else if (array[0].equals("collisions")) {
 						

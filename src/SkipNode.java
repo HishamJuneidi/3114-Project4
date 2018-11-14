@@ -1,9 +1,13 @@
 
-public class SkipNode<K extends Comparable<AirObject>> {
+public class SkipNode<K extends Comparable<AirObject>, E> {
 	
-	private KVPair<K> rec;
-	public SkipNode<K>[] forward;
+	private KVPair<K, E> rec;
+	public SkipNode<K, E>[] forward;
+	private SkipNode<K, E> next;
 	
+	public Object element() {
+		return rec.value();
+	}
 
 	
 	public K key() {
@@ -11,11 +15,20 @@ public class SkipNode<K extends Comparable<AirObject>> {
 	}
 
 	@SuppressWarnings("unchecked")
-	public SkipNode(K key, int level) {
-	    rec = new KVPair<K>(key);
+	public SkipNode(K key, E elem, int level) {
+	    rec = new KVPair<K, E>(key, elem);
 	    forward = new SkipNode[level + 1];
 	    for (int i = 0; i < level; i++)
 	    		forward[i] = null;
+	}
+	
+	public SkipNode<K, E> next() {
+		return next;
+	}
+	
+	public void setNext(SkipNode<K, E> newNext) {
+		newNext.setNext(next);
+		next = newNext;
 	}
 
 
