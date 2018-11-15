@@ -83,9 +83,12 @@ public class SkipList<K extends Comparable<AirObject>, E> {
 		  String elem = null;
 		  
 		  for (int i = level; i >= 0; i--) {
+			 
 			  SkipNode<K, E> temp = x.forward[i];
-			  if (temp.forward[i] != null) {
-				  elem = (String) temp.forward[0].element();
+			 
+			  
+			  if ( temp != null && temp.forward[i] != null) {
+				  elem = (String) temp.forward[i].element();
 			  }
 			  while ((temp.forward[i] != null) && 
 					  (!elem.equals((String) key))) {
@@ -112,8 +115,8 @@ public class SkipList<K extends Comparable<AirObject>, E> {
 				  }
 				  
 			  }
-			  if (j == level) {
-				  if (update[j].forward[0] == null) {
+			  if (j == level && update[j] != null) {
+				  if ( update[j].forward[0] == null) {
 					  level--;
 				  }
 			  }

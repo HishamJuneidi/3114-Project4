@@ -53,7 +53,7 @@ public class Parser {
 							ap.setY(y);
 							ap.setZ(z);
 							ap.setXWidth(xWidth);
-							ap.setYWidth(yWidth);
+							ap.setYWidth(yWidth); 
 							ap.setZWidth(zWidth);
 							if (valid)
 								success = sl.insert(ap, ap.getName());
