@@ -138,7 +138,8 @@ public class Parser {
 							System.out.println(" from the database");
 						}
 						else {
-							
+							System.out.print("Object |" + array[1] + "| ");
+							System.out.println("not in the database");
 						}
 					}
 					else if (array[0].equals("print")) {
