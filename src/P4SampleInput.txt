@@ -1,0 +1,22 @@
+ 
+ 
+ add    airplane A 100 1010 101 1020 102 1010 Delta 17 2
+  add    airplane B 100 1010 101 1020 102 1010 Delta 17 2
+ add    airplane C 100 1010 101 1020 102 1010 Delta 17 2
+  add    airplane D 100 1010 101 1020 102 1010 Delta 17 2
+ 
+ print skiplist
+ delete B
+ delete C 
+ delete A
+ delete D
+  print skiplist
+  
+   add    airplane D 100 1010 101 1020 102 1010 Delta 17 2
+   add    airplane C 100 1010 101 1020 102 1010 Delta 17 2
+   add    airplane A 100 1010 101 1020 102 1010 Delta 17 2
+   
+    delete D
+     delete C
+      delete A
+      print object D

@@ -46,153 +46,152 @@ public class SkipList<K extends Comparable<AirObject>, E> {
 	}
 	
 	/** Insert a key, element pair into the skip list */
-	  @SuppressWarnings("unchecked")
+	@SuppressWarnings("unchecked")
 	public boolean insert(K key, E name) {
-		  if (this.find(name) != null) {
-			  return false;
-		  }
-		  int newLevel = randomLevel(); // New node's level
-		  if (newLevel > level) // If new node is deeper
-			  adjustHead(newLevel); // adjust the header
-		  	  // Track end of level
-		    	  SkipNode<K, E>[] update = new SkipNode[level + 1];
-		      SkipNode<K, E> x = head; // Start at header node
-		      for (int i = level; i >= 0; i--) { // Find insert position
-		    	  	while ((x.forward[i] != null) && (x.forward[i].key().compareTo((AirObject) key) < 0))
-			    	  	x = x.forward[i];
-			    update[i] = x; // Track end at level i
-		    }
-		    x = new SkipNode<K, E>(key, name, newLevel);
-		    for (int i = 0; i <= newLevel; i++) { // Splice into list
-		    		x.forward[i] = update[i].forward[i]; // Who x points to
-		    		update[i].forward[i] = x; // Who points to x
-		    }
-		    size++; // Increment dictionary size
-		    return true;
+		if (this.find(name) != null) {
+			return false;
+		}
+		int newLevel = randomLevel(); // New node's level
+		if (newLevel > level) // If new node is deeper
+			adjustHead(newLevel); // adjust the header
+		  	// Track end of level
+		SkipNode<K, E>[] update = new SkipNode[level + 1];
+		SkipNode<K, E> x = head; // Start at header node
+		for (int i = level; i >= 0; i--) { // Find insert position
+		    while ((x.forward[i] != null) && (x.forward[i].key().compareTo((AirObject) key) < 0))
+			    x = x.forward[i];
+			update[i] = x; // Track end at level i
+		}
+		x = new SkipNode<K, E>(key, name, newLevel);
+		for (int i = 0; i <= newLevel; i++) { // Splice into list
+		    x.forward[i] = update[i].forward[i]; // Who x points to
+		    update[i].forward[i] = x; // Who points to x
+		}
+		size++; // Increment dictionary size
+		return true;
 	  }
 	  
-	  @SuppressWarnings("unchecked")
-	  public boolean delete(E key) {
-		  if (this.find(key) == null) {
-			  System.out.print("Object |" + ((String) key) + "| ");
-			  System.out.println("not in the database");
-			  return false;
-		  }
-		  SkipNode<K, E>[] update = new SkipNode[level + 1];
-		  SkipNode<K, E> x = head;
-		  String elem = null;
+	@SuppressWarnings("unchecked")
+	public boolean delete(E key) {
+		if (this.find(key) == null) {
+			
+			return false;
+		}
+		SkipNode<K, E>[] update = new SkipNode[level + 1];
+		SkipNode<K, E> x = head;
+		String elem = null;
 		  
-		  for (int i = level; i >= 0; i--) {
+		for (int i = level; i >= 0; i--) {
 			 
-			  SkipNode<K, E> temp = x.forward[i];
+			SkipNode<K, E> temp = x.forward[i];
 			 
 			  
-			  if ( temp != null && temp.forward[i] != null) {
-				  elem = (String) temp.forward[i].element();
-			  }
-			  while ((temp.forward[i] != null) && 
-					  (!elem.equals((String) key))) {
-				  temp = temp.forward[i];
-				  if (temp.forward[i] != null) {
-					  elem = (String) temp.forward[i].element();
-				  }
-			  }
+			if ( temp != null && temp.forward[i] != null) {
+				elem = (String) temp.forward[i].element();
+			}
+			while ((temp.forward[i] != null) && 
+					(!elem.equals((String) key))) {
+				temp = temp.forward[i];
+				if (temp.forward[i] != null) {
+					elem = (String) temp.forward[i].element();
+				}
+			}
 			 
-			  update[i] = temp;
-		  }
-		  if (head.forward[0].element().equals((String) key)) {
-			  head.forward[0] = head.forward[0].forward[0];
-		  }
-		  for (int j = 0; j <= level; j++) {
+			update[i] = temp;
+		}
+		if (head.forward[0].element().equals((String) key)) {
+			head.forward[0] = head.forward[0].forward[0];
+		}
+		for (int j = 0; j <= level; j++) {
 			  
-			  if (update[j] != null) {
-				  if (update[j].element().equals((String) key)) {
-					  update[j] = update[j].forward[0];
-				  }
-				  else if (update[j].forward[0] != null) {
-					  if (update[j].forward[0].element().equals((String) key))
-						  update[j].forward[0] = update[j].forward[0].forward[0];
-				  }
+			if (update[j] != null) {
+				if (update[j].element().equals((String) key)) {
+					update[j] = update[j].forward[0];
+				}
+				else if (update[j].forward[0] != null) {
+					if (update[j].forward[0].element().equals((String) key))
+						update[j].forward[0] = update[j].forward[0].forward[0];
+				}
 				  
-			  }
-			  if (j == level && update[j] != null) {
-				  if ( update[j].forward[0] == null) {
-					  level--;
-				  }
-			  }
-		  }
-		  size--;
-		  return true;
-	  }
+			}
+			if (j == level && update[j] != null) {
+				if ( update[j].forward[0] == null) {
+					level--;
+				}
+			}
+		}
+		size--;
+		return true;
+	}
 
-	  private void adjustHead(int newLevel) {
-		    SkipNode<K, E> temp = head;
-		    head = new SkipNode<K, E>(null, null, newLevel);
-		    for (int i = 0; i <= level; i++)
-		    		head.forward[i] = temp.forward[i];
-		    level = newLevel;
-	  }
+	private void adjustHead(int newLevel) {
+		SkipNode<K, E> temp = head;
+		head = new SkipNode<K, E>(null, null, newLevel);
+		for (int i = 0; i <= level; i++)
+		    head.forward[i] = temp.forward[i];
+		level = newLevel;
+	}
 	  
-	  public void dump() {
-		  System.out.println("SkipList dump:");
-		  SkipNode<K, E> x = head;
-		  int i = 0;
+	public void dump() {
+		System.out.println("SkipList dump:");
+		SkipNode<K, E> x = head;
+		int i = 0;
 		  
-		  while (x != null) {
-			  System.out.print("Node has depth " + x.forward.length + ", ");
-			  if (x.key() != null) {
-				  System.out.println("Value " + x.key().toString());
-			  }
-			  else {
-				  System.out.println("Value (null)");
-			  }
-			  x = x.forward[i];
-		  }
+		while (x != null) {
+			System.out.print("Node has depth " + x.forward.length + ", ");
+			if (x.key() != null) {
+				System.out.println("Value " + x.key().toString());
+			}
+			else {
+				System.out.println("Value (null)");
+			}
+			x = x.forward[i];
+		}
 		  
-		  System.out.println(size + " skiplist nodes printed");
-	  }
+		System.out.println(size + " skiplist nodes printed");
+	}
 	  
-	  public void printObject(E key) {
-		  K nodeToPrint = this.find(key);
-		  if (nodeToPrint != null) {
-			  StringBuilder output = new StringBuilder(nodeToPrint.toString());
-			  output.deleteCharAt(0);
-			  output.deleteCharAt(output.length() - 1);
-			  System.out.println("Found: " + output.toString());
-		  }
-		  else {
-			  System.out.print("|" + ((String) key) + "| ");
-			  System.out.println("does not exist in the database");
-		  }
-	  }
+	public void printObject(E key) {
+		K nodeToPrint = this.find(key);
+		if (nodeToPrint != null) {
+			StringBuilder output = new StringBuilder(nodeToPrint.toString());
+			output.deleteCharAt(0);
+			output.deleteCharAt(output.length() - 1);
+			System.out.println("Found: " + output.toString());
+		}
+		else {
+			System.out.print("|" + ((String) key) + "| ");
+			System.out.println("does not exist in the database");
+		}
+	}
 	  
-	  public void rangePrint(String start, String end) {
-		  if (end.compareTo(start) > 0) {
-			  System.out.print("Found these records in the range |" + start + "| ");
-			  System.out.println("to |" + end + "|");
-			  SkipNode<K, E> x = head.forward[0];
-			  int i = 0;
-			  String elem = null;
-			  if (x != null)
-				  elem = (String) x.element();
-			  while (elem != null && elem.compareTo(end) <= 0) {
-				  if (elem.compareTo(start) >= 0) {
-					  StringBuilder output = new StringBuilder(x.key().toString());
-					  output.deleteCharAt(0);
-					  output.deleteCharAt(output.length() - 1);
-					  System.out.println(output.toString());
-				  }
-				  x = x.forward[i];
-				  if (x != null)
-					  elem = (String) x.element();
-				  else
-					  elem = null;
-			  }
-		  }
-		  else {
-			  System.out.print("Error in rangeprint parameters: |" + start);
-			  System.out.println("| is not less than |" + end + "|");
-		  }
-	  }
+	public void rangePrint(String start, String end) {
+		if (end.compareTo(start) > 0) {
+			System.out.print("Found these records in the range |" + start + "| ");
+			System.out.println("to |" + end + "|");
+			SkipNode<K, E> x = head.forward[0];
+			int i = 0;
+			String elem = null;
+			if (x != null)
+				elem = (String) x.element();
+			while (elem != null && elem.compareTo(end) <= 0) {
+				if (elem.compareTo(start) >= 0) {
+					StringBuilder output = new StringBuilder(x.key().toString());
+					output.deleteCharAt(0);
+					output.deleteCharAt(output.length() - 1);
+					System.out.println(output.toString());
+				}
+				x = x.forward[i];
+				if (x != null)
+					elem = (String) x.element();
+				else
+					elem = null;
+			}
+		}
+		else {
+			System.out.print("Error in rangeprint parameters: |" + start);
+			System.out.println("| is not less than |" + end + "|");
+		}
+	}
 
 }
