@@ -4,6 +4,8 @@ public class BinLeaf {
 	private int x, y, z, xLen, yLen, zLen, level, numNodes;
 	private BinLeaf left, right;
 	private boolean isSplit;
+	private linkedList[] nodes;
+	private final int MAX_NODES = 3;
 	
 	private BinLeaf(int xLength, int yLength, int zLength) {
 		x = 0;
@@ -15,6 +17,10 @@ public class BinLeaf {
 		level = 1;
 		numNodes = 0;
 		isSplit = false;
+		nodes = new linkedList[MAX_NODES];
+		for (int i = 0; i < MAX_NODES; i++) {
+			nodes[i] = new linkedList();
+		}
 	}
 	
 	private BinLeaf(int newX, int newY, int newZ, int xLength, int yLength, int zLength, int l) {
@@ -27,10 +33,36 @@ public class BinLeaf {
 		level = l;
 		numNodes = 0;
 		isSplit = false;
+		nodes = new linkedList[MAX_NODES];
+		for (int i = 0; i < MAX_NODES; i++) {
+			nodes[i] = new linkedList();
+		}
 	}
 	
 	public void insert(AirObject ao) {
 		if (numNodes == 3) {
+			split();
+		}
+		for (int i = 0; i < MAX_NODES; i++) {
+			if (nodes[i].head() == null) {
+				nodes[i].insert(new linkedNode(ao));
+				numNodes++;
+				break;
+			}
+			if (nodes[i].head().collides(ao)) {
+				nodes[i].insert(new linkedNode(ao));
+				break;
+			}
+		}
+		int tempLen = 0;
+		int numLocations = 0;
+		for (int j = 0; j < MAX_NODES; j++) {
+			tempLen += nodes[j].length();
+			if (nodes[j].length() > 0) {
+				numLocations++;
+			}
+		}
+		if (tempLen > 3 && numLocations > 1) {
 			split();
 		}
 	}

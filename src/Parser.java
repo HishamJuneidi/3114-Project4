@@ -6,7 +6,7 @@ public class Parser {
 	
 	public static final int MAX_BOX_WIDTH = 1024;
 	
-	public void parse(String filename, SkipList<AirObject, Object> sl) {
+	public void parse(String filename, SkipList<AirObject, Object> sl, BinTree bt) {
 		String[] array;
 		File file = new File(filename);
 		try {
@@ -55,8 +55,10 @@ public class Parser {
 							ap.setXWidth(xWidth);
 							ap.setYWidth(yWidth); 
 							ap.setZWidth(zWidth);
-							if (valid)
+							if (valid) {
 								success = sl.insert(ap, ap.getName());
+								bt.insert(ap);
+							}
 						}
 						else if (array[1].equals("balloon")) {
 							//Balloon b = (Balloon) ao;
@@ -69,8 +71,10 @@ public class Parser {
 							b.setXWidth(xWidth);
 							b.setYWidth(yWidth);
 							b.setZWidth(zWidth);
-							if (valid)
+							if (valid) {
 								success = sl.insert(b, b.getName());
+								bt.insert(b);
+							}
 						}
 						else if (array[1].equals("bird")) {
 							Bird bd = new Bird(name);
@@ -82,8 +86,10 @@ public class Parser {
 							bd.setXWidth(xWidth);
 							bd.setYWidth(yWidth);
 							bd.setZWidth(zWidth);
-							if (valid)
+							if (valid) {
 								success = sl.insert(bd, bd.getName());
+								bt.insert(bd);
+							}
 						}
 						else if (array[1].equals("drone")) {
 							//Drone d = (Drone) ao;
@@ -96,8 +102,10 @@ public class Parser {
 							d.setXWidth(xWidth);
 							d.setYWidth(yWidth);
 							d.setZWidth(zWidth);
-							if (valid)
+							if (valid) {
 								success = sl.insert(d, d.getName());
+								bt.insert(d);
+							}
 						}
 						else {
 							Rocket r = new Rocket(name);
@@ -109,8 +117,10 @@ public class Parser {
 							r.setXWidth(xWidth);
 							r.setYWidth(yWidth);
 							r.setZWidth(zWidth);
-							if (valid)
+							if (valid) {
 								success = sl.insert(r, r.getName());
+								bt.insert(r);
+							}
 						}
 						if (valid) {
 							if (success)

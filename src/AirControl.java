@@ -39,6 +39,7 @@ public class AirControl {
     		String inputFile = args[0];
     		Parser p = new Parser();
     		SkipList<AirObject, Object> sl = new SkipList<AirObject, Object>();
-    		p.parse(inputFile, sl);
+    		BinTree bt = new BinTree();
+    		p.parse(inputFile, sl, bt);
     }
 }
