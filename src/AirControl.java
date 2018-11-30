@@ -40,6 +40,8 @@ public class AirControl {
     		Parser p = new Parser();
     		SkipList<AirObject, Object> sl = new SkipList<AirObject, Object>();
     		BinTree bt = new BinTree();
-    		p.parse(inputFile, sl, bt);
+    		//System.out.println("Bt is Her" +bt);
+    		tree t = new tree();
+    		p.parse(inputFile, sl, bt, t);
     }
 }

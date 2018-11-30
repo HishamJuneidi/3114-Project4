@@ -6,7 +6,7 @@ public class Parser {
 	
 	public static final int MAX_BOX_WIDTH = 1024;
 	
-	public void parse(String filename, SkipList<AirObject, Object> sl, BinTree bt) {
+	public void parse(String filename, SkipList<AirObject, Object> sl, BinTree bt, tree t) {
 		String[] array;
 		File file = new File(filename);
 		try {
@@ -73,7 +73,10 @@ public class Parser {
 							b.setZWidth(zWidth);
 							if (valid) {
 								success = sl.insert(b, b.getName());
-								bt.insert(b);
+								System.out.println("B is Her" +b);// delete
+								System.out.println("  ");/// delete 
+								//bt.insert(b);
+								t.insertTree(b);
 							}
 						}
 						else if (array[1].equals("bird")) {
@@ -158,6 +161,8 @@ public class Parser {
 						}
 						else if (array[1].equals("object")) {
 							sl.printObject(array[2]);
+						}else if (array[1].equals("bintree")) {
+							//sl.printObject(array[2]);
 						}
 					}
 					else if (array[0].equals("rangeprint")) {
