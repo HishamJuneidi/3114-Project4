@@ -30,6 +30,10 @@
 // letter of this restriction.
 
 public class AirControl {
+	
+	static final int BOX_LENGTH = 1024;
+	static final int BOX_HEIGHT = 1024;
+	static final int BOX_WIDTH = 1024;
     /**
      * @param args
      *     Command line parameters
@@ -40,8 +44,8 @@ public class AirControl {
     		Parser p = new Parser();
     		SkipList<AirObject, Object> sl = new SkipList<AirObject, Object>();
     		BinTree bt = new BinTree();
-    		//System.out.println("Bt is Her" +bt);
-    		tree t = new tree();
+    		
+    		tree t = new tree(0, 0, 0, BOX_LENGTH, BOX_WIDTH, BOX_HEIGHT, 1);
     		p.parse(inputFile, sl, bt, t);
     }
 }

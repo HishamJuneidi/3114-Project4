@@ -1,0 +1,317 @@
+Enterprise has been added to the database
+MVPwatch has been added to the database
+MVPwatch1 has been added to the database
+MVPwatch2 has been added to the database
+Duplicate object names not permitted: |MVPwatch|
+Bad box (60 1010 101 1020 102 1030). All boxes must be entirely within the world box.
+Bad box (100 1010 101 -1020 102 1030). All widths must be positive.
+B1 has been added to the database
+Air1 has been added to the database
+Air2 has been added to the database
+Tweety has been added to the database
+B9 has been added to the database
+Air5 has been added to the database
+Air9 has been added to the database
+Bintree dump:
+I
+  I
+    I
+      I
+        I
+          I
+            I
+              I
+                I
+                  I
+                    I
+                      I
+                        I
+                          I
+                            I
+                              I
+                                I
+                                  I
+                                    I
+                                      Leaf with 3 objects:
+                                      (Airplane Air1 0 0 1 20 200 30 USAir 717 4)
+                                      (Airplane Air9 0 0 0 1 300 513 American 17 2)
+                                      (Rocket Enterprise 0 0 0 1 1 513 5000 99.29)
+                                      Leaf with 2 objects:
+                                      (Airplane Air1 0 0 1 20 200 30 USAir 717 4)
+                                      (Balloon B1 10 11 11 21 12 31 hot_air 15)
+                                    I
+                                      Leaf with 3 objects:
+                                      (Airplane Air1 0 0 1 20 200 30 USAir 717 4)
+                                      (Airplane Air9 0 0 0 1 300 513 American 17 2)
+                                      (Rocket Enterprise 0 0 0 1 1 513 5000 99.29)
+                                      Leaf with 2 objects:
+                                      (Airplane Air1 0 0 1 20 200 30 USAir 717 4)
+                                      (Balloon B1 10 11 11 21 12 31 hot_air 15)
+                                  Leaf with 3 objects:
+                                  (Airplane Air1 0 0 1 20 200 30 USAir 717 4)
+                                  (Airplane Air9 0 0 0 1 300 513 American 17 2)
+                                  (Balloon B1 10 11 11 21 12 31 hot_air 15)
+                                Leaf with 2 objects:
+                                (Airplane Air1 0 0 1 20 200 30 USAir 717 4)
+                                (Balloon B1 10 11 11 21 12 31 hot_air 15)
+                              Leaf with 3 objects:
+                              (Airplane Air9 0 0 0 1 300 513 American 17 2)
+                              (Balloon B1 10 11 11 21 12 31 hot_air 15)
+                              (Rocket Enterprise 0 0 0 1 1 513 5000 99.29)
+                            Leaf with 2 objects:
+                            (Airplane Air1 0 0 1 20 200 30 USAir 717 4)
+                            (Airplane Air9 0 0 0 1 300 513 American 17 2)
+                          Leaf with 2 objects:
+                          (Drone MVPwatch 50 50 50 50 50 50 Droners 3)
+                          (Drone MVPwatch1 50 50 50 50 50 75 Droners 3)
+                        I
+                          Leaf with 2 objects:
+                          (Airplane Air9 0 0 0 1 300 513 American 17 2)
+                          (Rocket Enterprise 0 0 0 1 1 513 5000 99.29)
+                          Leaf with 2 objects:
+                          (Drone MVPwatch 50 50 50 50 50 50 Droners 3)
+                          (Drone MVPwatch1 50 50 50 50 50 75 Droners 3)
+                      I
+                        I
+                          Leaf with 2 objects:
+                          (Airplane Air1 0 0 1 20 200 30 USAir 717 4)
+                          (Airplane Air9 0 0 0 1 300 513 American 17 2)
+                          Leaf with 2 objects:
+                          (Drone MVPwatch 50 50 50 50 50 50 Droners 3)
+                          (Drone MVPwatch1 50 50 50 50 50 75 Droners 3)
+                        Leaf with 3 objects:
+                        (Airplane Air9 0 0 0 1 300 513 American 17 2)
+                        (Drone MVPwatch 50 50 50 50 50 50 Droners 3)
+                        (Drone MVPwatch1 50 50 50 50 50 75 Droners 3)
+                    Leaf with 2 objects:
+                    (Drone MVPwatch 50 50 50 50 50 50 Droners 3)
+                    (Drone MVPwatch1 50 50 50 50 50 75 Droners 3)
+                  Leaf with 2 objects:
+                  (Airplane Air9 0 0 0 1 300 513 American 17 2)
+                  (Rocket Enterprise 0 0 0 1 1 513 5000 99.29)
+                Leaf with 2 objects:
+                (Airplane Air1 0 0 1 20 200 30 USAir 717 4)
+                (Airplane Air9 0 0 0 1 300 513 American 17 2)
+              E
+            Leaf with 3 objects:
+            (Airplane Air9 0 0 0 1 300 513 American 17 2)
+            (Rocket Enterprise 0 0 0 1 1 513 5000 99.29)
+            (Drone MVPwatch2 50 50 500 50 50 150 Droners 3)
+          Leaf with 1 objects:
+          (Airplane Air9 0 0 0 1 300 513 American 17 2)
+        Leaf with 1 objects:
+        (Airplane Air5 510 315 100 75 25 10 Delta 717 4)
+      Leaf with 3 objects:
+      (Airplane Air9 0 0 0 1 300 513 American 17 2)
+      (Rocket Enterprise 0 0 0 1 1 513 5000 99.29)
+      (Drone MVPwatch2 50 50 500 50 50 150 Droners 3)
+    Leaf with 1 objects:
+    (Airplane Air2 100 1010 101 924 2 900 Delta 17 2)
+  I
+    Leaf with 1 objects:
+    (Airplane Air5 510 315 100 75 25 10 Delta 717 4)
+    Leaf with 3 objects:
+    (Airplane Air2 100 1010 101 924 2 900 Delta 17 2)
+    (Balloon B9 750 1010 900 4 4 4 hot_air 15)
+    (Bird Tweety 750 1010 900 2 2 2 Canary 1)
+49 bintree nodes printed
+Deleted |MVPwatch2| from the database
+Deleted |Air2| from the database
+Bintree dump:
+I
+  I
+    I
+      I
+        I
+          I
+            I
+              I
+                I
+                  I
+                    I
+                      I
+                        I
+                          I
+                            I
+                              I
+                                I
+                                  I
+                                    I
+                                      Leaf with 3 objects:
+                                      (Airplane Air1 0 0 1 20 200 30 USAir 717 4)
+                                      (Airplane Air9 0 0 0 1 300 513 American 17 2)
+                                      (Rocket Enterprise 0 0 0 1 1 513 5000 99.29)
+                                      Leaf with 2 objects:
+                                      (Airplane Air1 0 0 1 20 200 30 USAir 717 4)
+                                      (Balloon B1 10 11 11 21 12 31 hot_air 15)
+                                    I
+                                      Leaf with 3 objects:
+                                      (Airplane Air1 0 0 1 20 200 30 USAir 717 4)
+                                      (Airplane Air9 0 0 0 1 300 513 American 17 2)
+                                      (Rocket Enterprise 0 0 0 1 1 513 5000 99.29)
+                                      Leaf with 2 objects:
+                                      (Airplane Air1 0 0 1 20 200 30 USAir 717 4)
+                                      (Balloon B1 10 11 11 21 12 31 hot_air 15)
+                                  Leaf with 3 objects:
+                                  (Airplane Air1 0 0 1 20 200 30 USAir 717 4)
+                                  (Airplane Air9 0 0 0 1 300 513 American 17 2)
+                                  (Balloon B1 10 11 11 21 12 31 hot_air 15)
+                                Leaf with 2 objects:
+                                (Airplane Air1 0 0 1 20 200 30 USAir 717 4)
+                                (Balloon B1 10 11 11 21 12 31 hot_air 15)
+                              Leaf with 3 objects:
+                              (Airplane Air9 0 0 0 1 300 513 American 17 2)
+                              (Balloon B1 10 11 11 21 12 31 hot_air 15)
+                              (Rocket Enterprise 0 0 0 1 1 513 5000 99.29)
+                            Leaf with 2 objects:
+                            (Airplane Air1 0 0 1 20 200 30 USAir 717 4)
+                            (Airplane Air9 0 0 0 1 300 513 American 17 2)
+                          Leaf with 2 objects:
+                          (Drone MVPwatch 50 50 50 50 50 50 Droners 3)
+                          (Drone MVPwatch1 50 50 50 50 50 75 Droners 3)
+                        I
+                          Leaf with 2 objects:
+                          (Airplane Air9 0 0 0 1 300 513 American 17 2)
+                          (Rocket Enterprise 0 0 0 1 1 513 5000 99.29)
+                          Leaf with 2 objects:
+                          (Drone MVPwatch 50 50 50 50 50 50 Droners 3)
+                          (Drone MVPwatch1 50 50 50 50 50 75 Droners 3)
+                      I
+                        I
+                          Leaf with 2 objects:
+                          (Airplane Air1 0 0 1 20 200 30 USAir 717 4)
+                          (Airplane Air9 0 0 0 1 300 513 American 17 2)
+                          Leaf with 2 objects:
+                          (Drone MVPwatch 50 50 50 50 50 50 Droners 3)
+                          (Drone MVPwatch1 50 50 50 50 50 75 Droners 3)
+                        Leaf with 3 objects:
+                        (Airplane Air9 0 0 0 1 300 513 American 17 2)
+                        (Drone MVPwatch 50 50 50 50 50 50 Droners 3)
+                        (Drone MVPwatch1 50 50 50 50 50 75 Droners 3)
+                    Leaf with 2 objects:
+                    (Drone MVPwatch 50 50 50 50 50 50 Droners 3)
+                    (Drone MVPwatch1 50 50 50 50 50 75 Droners 3)
+                  Leaf with 2 objects:
+                  (Airplane Air9 0 0 0 1 300 513 American 17 2)
+                  (Rocket Enterprise 0 0 0 1 1 513 5000 99.29)
+                Leaf with 2 objects:
+                (Airplane Air1 0 0 1 20 200 30 USAir 717 4)
+                (Airplane Air9 0 0 0 1 300 513 American 17 2)
+              E
+            Leaf with 2 objects:
+            (Airplane Air9 0 0 0 1 300 513 American 17 2)
+            (Rocket Enterprise 0 0 0 1 1 513 5000 99.29)
+          Leaf with 1 objects:
+          (Airplane Air9 0 0 0 1 300 513 American 17 2)
+        Leaf with 1 objects:
+        (Airplane Air5 510 315 100 75 25 10 Delta 717 4)
+      Leaf with 2 objects:
+      (Airplane Air9 0 0 0 1 300 513 American 17 2)
+      (Rocket Enterprise 0 0 0 1 1 513 5000 99.29)
+    E
+  Leaf with 3 objects:
+  (Airplane Air5 510 315 100 75 25 10 Delta 717 4)
+  (Balloon B9 750 1010 900 4 4 4 hot_air 15)
+  (Bird Tweety 750 1010 900 2 2 2 Canary 1)
+47 bintree nodes printed
+Deleted |Enterprise| from the database
+Deleted |Air1| from the database
+Bintree dump:
+I
+  I
+    I
+      I
+        I
+          I
+            I
+              I
+                I
+                  I
+                    I
+                      I
+                        I
+                          Leaf with 2 objects:
+                          (Airplane Air9 0 0 0 1 300 513 American 17 2)
+                          (Balloon B1 10 11 11 21 12 31 hot_air 15)
+                          Leaf with 2 objects:
+                          (Drone MVPwatch 50 50 50 50 50 50 Droners 3)
+                          (Drone MVPwatch1 50 50 50 50 50 75 Droners 3)
+                        Leaf with 3 objects:
+                        (Airplane Air9 0 0 0 1 300 513 American 17 2)
+                        (Drone MVPwatch 50 50 50 50 50 50 Droners 3)
+                        (Drone MVPwatch1 50 50 50 50 50 75 Droners 3)
+                      Leaf with 3 objects:
+                      (Airplane Air9 0 0 0 1 300 513 American 17 2)
+                      (Drone MVPwatch 50 50 50 50 50 50 Droners 3)
+                      (Drone MVPwatch1 50 50 50 50 50 75 Droners 3)
+                    Leaf with 2 objects:
+                    (Drone MVPwatch 50 50 50 50 50 50 Droners 3)
+                    (Drone MVPwatch1 50 50 50 50 50 75 Droners 3)
+                  Leaf with 1 objects:
+                  (Airplane Air9 0 0 0 1 300 513 American 17 2)
+                Leaf with 1 objects:
+                (Airplane Air9 0 0 0 1 300 513 American 17 2)
+              E
+            Leaf with 1 objects:
+            (Airplane Air9 0 0 0 1 300 513 American 17 2)
+          Leaf with 1 objects:
+          (Airplane Air9 0 0 0 1 300 513 American 17 2)
+        Leaf with 1 objects:
+        (Airplane Air5 510 315 100 75 25 10 Delta 717 4)
+      Leaf with 1 objects:
+      (Airplane Air9 0 0 0 1 300 513 American 17 2)
+    E
+  Leaf with 3 objects:
+  (Airplane Air5 510 315 100 75 25 10 Delta 717 4)
+  (Balloon B9 750 1010 900 4 4 4 hot_air 15)
+  (Bird Tweety 750 1010 900 2 2 2 Canary 1)
+27 bintree nodes printed
+Deleted |Air5| from the database
+Deleted |Tweety| from the database
+Deleted |B9| from the database
+Bintree dump:
+I
+  I
+    I
+      I
+        I
+          I
+            I
+              I
+                I
+                  I
+                    I
+                      I
+                        I
+                          Leaf with 2 objects:
+                          (Airplane Air9 0 0 0 1 300 513 American 17 2)
+                          (Balloon B1 10 11 11 21 12 31 hot_air 15)
+                          Leaf with 2 objects:
+                          (Drone MVPwatch 50 50 50 50 50 50 Droners 3)
+                          (Drone MVPwatch1 50 50 50 50 50 75 Droners 3)
+                        Leaf with 3 objects:
+                        (Airplane Air9 0 0 0 1 300 513 American 17 2)
+                        (Drone MVPwatch 50 50 50 50 50 50 Droners 3)
+                        (Drone MVPwatch1 50 50 50 50 50 75 Droners 3)
+                      Leaf with 3 objects:
+                      (Airplane Air9 0 0 0 1 300 513 American 17 2)
+                      (Drone MVPwatch 50 50 50 50 50 50 Droners 3)
+                      (Drone MVPwatch1 50 50 50 50 50 75 Droners 3)
+                    Leaf with 2 objects:
+                    (Drone MVPwatch 50 50 50 50 50 50 Droners 3)
+                    (Drone MVPwatch1 50 50 50 50 50 75 Droners 3)
+                  Leaf with 1 objects:
+                  (Airplane Air9 0 0 0 1 300 513 American 17 2)
+                Leaf with 1 objects:
+                (Airplane Air9 0 0 0 1 300 513 American 17 2)
+              E
+            Leaf with 1 objects:
+            (Airplane Air9 0 0 0 1 300 513 American 17 2)
+          Leaf with 1 objects:
+          (Airplane Air9 0 0 0 1 300 513 American 17 2)
+        E
+      Leaf with 1 objects:
+      (Airplane Air9 0 0 0 1 300 513 American 17 2)
+    E
+  E
+27 bintree nodes printed

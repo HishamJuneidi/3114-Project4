@@ -10,8 +10,10 @@ public class linkedList {
 	
 	public void insert(linkedNode l) {
 		if (length == 0) {
-			head.setValue(l.value());
-			tail.setValue(l.value());
+			/*head.setValue(l.value());
+			tail.setValue(l.value());*/
+			head = l;
+			tail = l;
 		}
 		else {
 			l.setPrevious(tail);

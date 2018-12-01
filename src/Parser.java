@@ -57,7 +57,8 @@ public class Parser {
 							ap.setZWidth(zWidth);
 							if (valid) {
 								success = sl.insert(ap, ap.getName());
-								bt.insert(ap);
+								if (success)
+									t.insertTree(ap);
 							}
 						}
 						else if (array[1].equals("balloon")) {
@@ -73,10 +74,11 @@ public class Parser {
 							b.setZWidth(zWidth);
 							if (valid) {
 								success = sl.insert(b, b.getName());
-								System.out.println("B is Her" +b);// delete
-								System.out.println("  ");/// delete 
+								//System.out.println("B is Her" +b);// delete
+								//System.out.println("  ");/// delete 
 								//bt.insert(b);
-								t.insertTree(b);
+								if (success)
+									t.insertTree(b);
 							}
 						}
 						else if (array[1].equals("bird")) {
@@ -91,7 +93,8 @@ public class Parser {
 							bd.setZWidth(zWidth);
 							if (valid) {
 								success = sl.insert(bd, bd.getName());
-								bt.insert(bd);
+								if (success)
+									t.insertTree(bd);
 							}
 						}
 						else if (array[1].equals("drone")) {
@@ -107,7 +110,8 @@ public class Parser {
 							d.setZWidth(zWidth);
 							if (valid) {
 								success = sl.insert(d, d.getName());
-								bt.insert(d);
+								if (success)
+									t.insertTree(d);
 							}
 						}
 						else {
@@ -122,14 +126,17 @@ public class Parser {
 							r.setZWidth(zWidth);
 							if (valid) {
 								success = sl.insert(r, r.getName());
-								bt.insert(r);
+								if (success)
+									t.insertTree(r);
 							}
 						}
 						if (valid) {
-							if (success)
+							if (success) {
 								System.out.println(name + " has been added to the database");
-							else
+							}
+							else {
 								System.out.println("Duplicate object names not permitted: |" + name + "|");
+							}
 						}
 						/*ao.setX(x);
 						ao.setY(y);
@@ -162,7 +169,7 @@ public class Parser {
 						else if (array[1].equals("object")) {
 							sl.printObject(array[2]);
 						}else if (array[1].equals("bintree")) {
-							//sl.printObject(array[2]);
+							t.dump();
 						}
 					}
 					else if (array[0].equals("rangeprint")) {
