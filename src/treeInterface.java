@@ -22,5 +22,9 @@ public interface treeInterface {
      * @return value of count
      */
     public int dump(int count);
+    
+    public void collisions();
+    
+    public int intersect(int x, int y, int z, int xWidth, int yWidth, int zWidth, int count);
 
 }

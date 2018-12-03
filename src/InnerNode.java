@@ -95,5 +95,49 @@ public class InnerNode implements treeInterface {
 		return count;
 	}
 	
+	public void collisions() {
+		left.collisions();
+		right.collisions();
+	}
+	
+	public int intersect(int x, int y, int z, int xWidth, int yWidth, int zWidth, int count) {
+		count++;
+    		if (level % 3 == 1) { // split by x
+    			if (x < this.x + (xLen / 2)) {
+    				count = left.intersect(x, y, z, xWidth, yWidth, zWidth, count);
+    				if ((x + xWidth) >= this.x + (xLen / 2)) {
+    					return right.intersect(x, y, z, xWidth, yWidth, zWidth, count);
+    				}
+    				return count;
+    			}
+    			else {
+    				return right.intersect(x, y, z, xWidth, yWidth, zWidth, count);
+    			}
+    		}
+    		else if (level % 3 == 2) { // split by y
+    			if (y < this.y + (yLen / 2)) {
+    				count = left.intersect(x, y, z, xWidth, yWidth, zWidth, count);
+    				if ((y + yWidth) >= this.y + (yLen / 2)) {
+    					return right.intersect(x, y, z, xWidth, yWidth, zWidth, count);
+    				}
+    				return count;
+    			}
+    			else {
+    				return right.intersect(x, y, z, xWidth, yWidth, zWidth, count);
+    			}
+    		}
+    		else { // split by z
+    			if (z < this.z + (zLen / 2)) {
+    				count = left.intersect(x, y, z, xWidth, yWidth, zWidth, count);
+    				if ((z + zWidth) >= this.z + (zLen / 2)) {
+    					return right.intersect(x, y, z, xWidth, yWidth, zWidth, count);
+    				}
+    				return count;
+    			}
+    			else {
+    				return right.intersect(x, y, z, xWidth, yWidth, zWidth, count);
+    			}
+    		}
+    }
 	
 }

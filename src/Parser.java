@@ -74,9 +74,6 @@ public class Parser {
 							b.setZWidth(zWidth);
 							if (valid) {
 								success = sl.insert(b, b.getName());
-								//System.out.println("B is Her" +b);// delete
-								//System.out.println("  ");/// delete 
-								//bt.insert(b);
 								if (success)
 									t.insertTree(b);
 							}
@@ -138,18 +135,6 @@ public class Parser {
 								System.out.println("Duplicate object names not permitted: |" + name + "|");
 							}
 						}
-						/*ao.setX(x);
-						ao.setY(y);
-						ao.setZ(z);
-						ao.setXWidth(xWidth);
-						ao.setYWidth(yWidth);
-						ao.setZWidth(zWidth);
-						System.out.println("x: " + ao.getXorig());
-						System.out.println("y: " + ao.getYorig());
-						System.out.println("z: " + ao.getZorig());
-						System.out.println("xWidth: " + ao.getXwidth());
-						System.out.println("yWidth: " + ao.getYwidth());
-						System.out.println("zWidth: " + ao.getZwidth());*/
 					}
 					else if (array[0].equals("delete")) {
 						Boolean deleted = sl.delete(array[1]);
@@ -178,10 +163,39 @@ public class Parser {
 						sl.rangePrint(array[1], array[2]);
 					}
 					else if (array[0].equals("collisions")) {
-						
+						System.out.println("The following collisions exist in the database:");
+						t.collisions();
 					}
 					else { // intersect
-						
+						int x = Integer.parseInt(array[1]);
+						int y = Integer.parseInt(array[2]);
+						int z = Integer.parseInt(array[3]);
+						int xWidth = Integer.parseInt(array[4]);
+						int yWidth = Integer.parseInt(array[5]);
+						int zWidth = Integer.parseInt(array[6]);
+						String box = "(" + x + " " + y + " " + z + " " + 
+									xWidth + " " + yWidth + " " + zWidth + ")";
+						if (xWidth <= 0 || yWidth <= 0 || zWidth == 0) {
+							System.out.print("Bad box " + box + ". ");
+							System.out.println("All widths must be positive.");
+						}
+						else if (xWidth > MAX_BOX_WIDTH || yWidth > MAX_BOX_WIDTH 
+								|| zWidth > MAX_BOX_WIDTH) {
+							System.out.print("Bad box " + box + ". ");
+							System.out.println("All boxes must be entirely within the world box.");
+						}
+						else {
+							StringBuilder intersection = new StringBuilder();
+							intersection.append("(");
+							intersection.append(x + " " + y + " " + z + " ");
+							intersection.append(zWidth + " " + yWidth + " " + zWidth);
+							intersection.append("):");
+							System.out.print("The following objects intersect ");
+							System.out.println(intersection.toString());
+							int count = t.intersect(x, y, z, xWidth, yWidth, zWidth);
+							System.out.print(count);
+							System.out.println(" nodes were visited in the bintree");
+						}
 					}
 				}
 				

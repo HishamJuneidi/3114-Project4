@@ -141,6 +141,10 @@ public class AirObject implements Comparable<AirObject> {
     public String getName() {
         return name;
     }
+    
+    public void setName(String n) {
+		name = n;
+	}
 
 
     /**

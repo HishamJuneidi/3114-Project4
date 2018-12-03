@@ -27,7 +27,7 @@ public class linkedList {
         else {
             linkedNode current = head;
             while (current != null && 
-                    current.value().getName().compareToIgnoreCase(l.value().getName()) > 0) {
+                    current.value().getName().compareTo(l.value().getName()) > 0) {
                 current = current.next();
             }
             if (current != null) {
@@ -95,5 +95,61 @@ public class linkedList {
      */
     public int length() {
         return length;
+    }
+    
+    /**
+     * checks if a given air object collides with all objects
+     * in linked list
+     * @param ao
+     * @return whether or not all objects collide
+     */
+    public boolean collides(AirObject ao) {
+    		linkedNode curr = head;
+    		while (curr != null) {
+    			if (!curr.collides(ao)) {
+    				return false;
+    			}
+    			curr = curr.next();
+    		}
+    		return true;
+    }
+    
+    public void collissions(int x, int y, int z, int xWidth, int yWidth, int zWidth) {
+    		linkedNode first = tail;
+    		linkedNode second = first.previous();
+    		while (first.previous() != null) {
+    			while (second != null) {
+    				int xCoordinate;
+    				int yCoordinate;
+    				int zCoordinate;
+    				if (first.value().getXorig() > second.value().getXorig()) {
+    					xCoordinate = first.value().getXorig();
+    				}
+    				else {
+    					xCoordinate = second.value().getXorig();
+    				}
+    				if (first.value().getYorig() > second.value().getYorig()) {
+    					yCoordinate = first.value().getYorig();
+    				}
+    				else {
+    					yCoordinate = second.value().getYorig();
+    				}
+    				if (first.value().getZorig() > second.value().getZorig()) {
+    					zCoordinate = first.value().getZorig();
+    				}
+    				else {
+    					zCoordinate = second.value().getZorig();
+    				}
+    				if ((x <= xCoordinate && xCoordinate <= (x + xWidth)) &&
+    						(y <= yCoordinate && yCoordinate <= (y + yWidth)) &&
+    						(z <= zCoordinate && zCoordinate <= (z + zWidth))) {
+    					System.out.print(first.value().toString() + " and ");
+    					System.out.println(second.value().toString());
+    				}
+    				second = second.previous();
+    			}
+    			first = first.previous();
+    			second = first.previous();
+    		}
     }
 }

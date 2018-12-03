@@ -27,4 +27,12 @@ public class tree {
     	 	count = empN.dump(count);
     	 	return count;
      }
+     
+     public void collisions() {
+    	 	empN.collisions();
+     }
+     
+     public int intersect(int x, int y, int z, int xWidth, int yWidth, int zWidth) {
+    	 	return empN.intersect(x, y, z, xWidth, yWidth, zWidth, 0);
+     }
 }

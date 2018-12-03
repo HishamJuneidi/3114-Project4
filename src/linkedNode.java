@@ -70,6 +70,7 @@ public class linkedNode {
      * @return whether they collide
      */
     public boolean collides(AirObject ao) {
+    		
         int x = value.getXorig();
         int y = value.getYorig();
         int z = value.getZorig();
@@ -94,6 +95,35 @@ public class linkedNode {
         if (zWidth < ao.getZorig()) {
             return false;
         }
+        //System.out.println(ao.toString() + " collides with " + value.toString());
         return true;
+    }
+    
+    public boolean intersects(int x, int y, int z, int xWidth, int yWidth, int zWidth) {
+    		int xVal = value.getXorig();
+        int yVal = value.getYorig();
+        int zVal = value.getZorig();
+        int xLen = xVal + value.getXwidth();
+        int yLen = yVal + value.getYwidth();
+        int zLen = zVal + value.getZwidth();
+    		if (x > xLen) {
+    			return false;
+    		}
+    		if (y > yLen) {
+    			return false;
+    		}
+    		if (z > zLen) {
+    			return false;
+    		}
+    		if (xVal > (x + xWidth)) {
+    			return false;
+    		}
+    		if (yVal > (y + yWidth)) {
+    			return false;
+    		}
+    		if (zVal > (z + zWidth)) {
+    			return false;
+    		}
+    		return true;
     }
 }

@@ -48,5 +48,14 @@ public class emptyNode implements treeInterface {
         System.out.println("E");
         return count + 1;
     }
+    
+    public void collisions() {
+    		return;
+    }
+    
+    public int intersect(int x, int y, int z, int xWidth, int yWidth, int zWidth, int count) {
+    		
+    		return count + 1;
+    }
 
 }
