@@ -22,8 +22,9 @@ public class tree {
     	 	empN = empN.insert(v);
      }
      
-     public void dump() {
+     public int dump(int count) {
     	 	System.out.println("Bintree dump:");
-    	 	empN.dump();
+    	 	count = empN.dump(count);
+    	 	return count;
      }
 }

@@ -36,10 +36,6 @@ public class InnerNode implements treeInterface {
 					right = right.insert(ao);
 				}
 			}
-			else if (ao.getXorig() == x + (xLen / 2)) {
-				left = left.insert(ao);
-				right = right.insert(ao);
-			}
 			else {
 				right = right.insert(ao);
 			}
@@ -52,10 +48,6 @@ public class InnerNode implements treeInterface {
 					right = right.insert(ao);
 				}
 			}
-			else if (ao.getYorig() == y + (yLen / 2)) {
-				left = left.insert(ao);
-				right = right.insert(ao);
-			}
 			else {
 				right = right.insert(ao);
 			}
@@ -67,10 +59,6 @@ public class InnerNode implements treeInterface {
 				if ((ao.getZorig() + ao.getZwidth()) >= (z + (zLen / 2))) {
 					right = right.insert(ao);
 				}
-			}
-			else if (ao.getZorig() == z + (zLen / 2)) {
-				left = left.insert(ao);
-				right = right.insert(ao);
 			}
 			else {
 				right = right.insert(ao);
@@ -96,13 +84,15 @@ public class InnerNode implements treeInterface {
 		return right;
 	}
 	
-	public void dump() {
+	public int dump(int count) {
 		for (int i = 1; i < level; i++) {
 			System.out.print("  ");
 		}
 		System.out.println("I");
-		left.dump();
-		right.dump();
+		count++;
+		count = left.dump(count);
+		count = right.dump(count);
+		return count;
 	}
 	
 	

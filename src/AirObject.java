@@ -85,29 +85,53 @@ public class AirObject implements Comparable<AirObject> {
         return 0;
     }
     
+    /**
+     * sets x value
+     * @param newX new value of x
+     */
     public void setX(int newX) {
-		return;
-	}
-	
-	public void setY(int newY) {
-		return;
-	}
-	
-	public void setZ(int newZ) {
-		return;
-	}
-	
-	public void setXWidth(int newXWidth) {
-		return;
-	}
-	
-	public void setYWidth(int newYWidth) {
-		return;
-	}
-	
-	public void setZWidth(int newZWidth) {
-		return;
-	}
+        return;
+    }
+    
+    /**
+     * sets y value
+     * @param newY new value of y
+     */
+    public void setY(int newY) {
+        return;
+    }
+    
+    /**
+     * sets z value
+     * @param newZ new value of z
+     */
+    public void setZ(int newZ) {
+        return;
+    }
+    
+    /**
+     * sets width in x direction
+     * @param newXWidth new width
+     */
+    public void setXWidth(int newXWidth) {
+        return;
+    }
+    
+    /**
+     * sets y width
+     * @param newYWidth new y width
+     */
+    public void setYWidth(int newYWidth) {
+        return;
+    }
+    
+    /**
+     * sets z width
+     * @param newZWidth new z width
+     */
+    public void setZWidth(int newZWidth) {
+        return;
+    }
 
     /**
      * Getter for name

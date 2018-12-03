@@ -169,7 +169,9 @@ public class Parser {
 						else if (array[1].equals("object")) {
 							sl.printObject(array[2]);
 						}else if (array[1].equals("bintree")) {
-							t.dump();
+							int count = 0;
+							count = t.dump(count);
+							System.out.println(count + " bintree nodes printed");
 						}
 					}
 					else if (array[0].equals("rangeprint")) {
