@@ -4,14 +4,14 @@
  * @author hishamj6, risha97
  * @version 12/02/2018
  */
-public class linkedList {
-    private linkedNode head, tail; 
+public class MyLinkedList {
+    private LinkedNode head, tail; 
     private int length;
     
     /**
      * constructor for linked list
      */
-    public linkedList(){
+    public MyLinkedList(){
         length = 0;
     }
     
@@ -19,18 +19,21 @@ public class linkedList {
      * inserts object into linked list
      * @param l node being inserted
      */
-    public void insert(linkedNode l) {
+    public void insert(LinkedNode l) {
         if (length == 0) {
             head = l;
             tail = l;
         }
         else {
-            linkedNode current = head;
+            LinkedNode current = head;
             while (current != null && 
                     current.value().getName().compareTo(l.value().getName()) > 0) {
                 current = current.next();
             }
             if (current != null) {
+            	if (current.value().getName().equals(l.value().getName())) {
+            		return;
+            	}
                 l.setPrevious(current.previous());
                 current.setPrevious(l);
                 l.setNext(current);
@@ -58,7 +61,7 @@ public class linkedList {
      * @param ao airobject being removed
      */
     public boolean remove(String name) {
-        linkedNode current = head;
+        LinkedNode current = head;
         while (current != null && !current.value().getName().equals(name)) {
             current = current.next();
         }
@@ -85,7 +88,7 @@ public class linkedList {
      * gets head of linked list
      * @return head of linked list
      */
-    public linkedNode head() {
+    public LinkedNode head() {
         return head;
     }
     
@@ -93,7 +96,7 @@ public class linkedList {
      * returns tail of linked list
      * @return tail
      */
-    public linkedNode tail() {
+    public LinkedNode tail() {
         return tail;
     }
     
@@ -112,7 +115,7 @@ public class linkedList {
      * @return whether or not all objects collide
      */
     public boolean collides(AirObject ao) {
-    		linkedNode curr = head;
+    		LinkedNode curr = head;
     		while (curr != null) {
     			if (!curr.collides(ao)) {
     				return false;
@@ -123,8 +126,8 @@ public class linkedList {
     }
     
     public void collissions(int x, int y, int z, int xWidth, int yWidth, int zWidth) {
-    		linkedNode first = tail;
-    		linkedNode second = first.previous();
+    		LinkedNode first = tail;
+    		LinkedNode second = first.previous();
     		while (first.previous() != null) {
     			while (second != null) {
     				int xCoordinate;

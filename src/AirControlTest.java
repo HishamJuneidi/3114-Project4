@@ -1,7 +1,7 @@
 import student.TestCase;
 
 /**
- * @author {Your Name Here}
+ * @author risha97, hishamj6
  * @version {Put Something Here}
  */
 public class AirControlTest extends TestCase {
@@ -19,6 +19,8 @@ public class AirControlTest extends TestCase {
         AirControl recstore = new AirControl();
         assertNotNull(recstore);
         String[] args = {"BigInputFile.txt"};
+        AirControl.main(args);
+        args[0] = "P4SampleInput.txt";
         AirControl.main(args);
     }
     

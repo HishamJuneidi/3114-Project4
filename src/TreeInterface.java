@@ -4,7 +4,7 @@
  * @author hishamj6, risha97
  * @version 12/02/2018
  */
-public interface treeInterface {
+public interface TreeInterface {
     /*public void innerNode();
     public void leafNode();
     public void emptyNode();*/
@@ -14,7 +14,7 @@ public interface treeInterface {
      * @param ao object being inserted
      * @return object that as was inserted into
      */
-    public treeInterface insert(AirObject ao);
+    public TreeInterface insert(AirObject ao);
     
     /**
      * prints the contents of a given interface
@@ -27,14 +27,14 @@ public interface treeInterface {
     
     public int intersect(int x, int y, int z, int xWidth, int yWidth, int zWidth, int count);
     
-    public treeInterface delete(String name);
+    public TreeInterface delete(String name);
     
     public boolean isInner();
     
     public boolean isLeaf();
     
-    public boolean isEmpty();
+    public boolean isFlyweight();
     
-    public linkedList[] nodes();
+    public MyLinkedList[] nodes();
 
 }

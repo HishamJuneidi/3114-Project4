@@ -6,7 +6,7 @@ public class Parser {
 	
 	public static final int MAX_BOX_WIDTH = 1024;
 	
-	public void parse(String filename, SkipList<AirObject, Object> sl, BinTree bt, tree t) {
+	public void parse(String filename, SkipList<AirObject, Object> sl, BinTree t) {
 		String[] array;
 		File file = new File(filename);
 		try {
@@ -190,7 +190,7 @@ public class Parser {
 							StringBuilder intersection = new StringBuilder();
 							intersection.append("(");
 							intersection.append(x + " " + y + " " + z + " ");
-							intersection.append(zWidth + " " + yWidth + " " + zWidth);
+							intersection.append(xWidth + " " + yWidth + " " + zWidth);
 							intersection.append("):");
 							System.out.print("The following objects intersect ");
 							System.out.println(intersection.toString());

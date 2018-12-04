@@ -1,8 +1,8 @@
 
-public class InnerNode implements treeInterface {
+public class InnerNode implements TreeInterface {
 
 	private int x, y, z, xLen, yLen, zLen, level;
-	private treeInterface left, right;
+	private TreeInterface left, right;
 
 	public InnerNode(int newX, int newY, int newZ, int xLength, int yLength, int zLength, int l) {
 		x = newX;
@@ -13,20 +13,20 @@ public class InnerNode implements treeInterface {
 		zLen = zLength;
 		level = l;
 		if (level % 3 == 1) {
-			left = new emptyNode(x, y, z, xLen / 2, yLen, zLen, this.level + 1);
-			right = new emptyNode(x + (xLen / 2), y, z, xLen / 2, yLen, zLen, this.level + 1);
+			left = new Flyweight(x, y, z, xLen / 2, yLen, zLen, this.level + 1);
+			right = new Flyweight(x + (xLen / 2), y, z, xLen / 2, yLen, zLen, this.level + 1);
 		} 
 		else if (level % 3 == 2) {
-			left = new emptyNode(x, y, z, xLen, yLen / 2, zLen, this.level + 1);
-			right = new emptyNode(x, y + (yLen / 2), z, xLen, yLen / 2, zLen, this.level + 1);
+			left = new Flyweight(x, y, z, xLen, yLen / 2, zLen, this.level + 1);
+			right = new Flyweight(x, y + (yLen / 2), z, xLen, yLen / 2, zLen, this.level + 1);
 		} 
 		else {
-			left = new emptyNode(x, y, z, xLen, yLen, zLen / 2, this.level + 1);
-			right = new emptyNode(x, y, z + (zLen / 2), xLen, yLen, zLen / 2, this.level + 1);
+			left = new Flyweight(x, y, z, xLen, yLen, zLen / 2, this.level + 1);
+			right = new Flyweight(x, y, z + (zLen / 2), xLen, yLen, zLen / 2, this.level + 1);
 		}
 	}
 
-	public treeInterface insert(AirObject ao) {
+	public TreeInterface insert(AirObject ao) {
 		// split by x axis
 		if (level % 3 == 1) {
 			if (ao.getXorig() < x + (xLen / 2)) {
@@ -66,19 +66,19 @@ public class InnerNode implements treeInterface {
 		return this;
 	}
 
-	public void setLeft(treeInterface l) {
+	public void setLeft(TreeInterface l) {
 		this.left = l;
 	}
 
-	public void setRight(treeInterface r) {
+	public void setRight(TreeInterface r) {
 		this.right = r;
 	}
 
-	public treeInterface left() {
+	public TreeInterface left() {
 		return left;
 	}
 
-	public treeInterface right() {
+	public TreeInterface right() {
 		return right;
 	}
 
@@ -138,21 +138,23 @@ public class InnerNode implements treeInterface {
 		}
 	}
 
-	public treeInterface delete(String name) {
+	public TreeInterface delete(String name) {
 		left = left.delete(name);
 		right = right.delete(name);
 		return this.merge();
 	}
 	
-	private treeInterface merge() {
-		if (left.isEmpty() && right.isEmpty()) {
-			return new emptyNode(x, y, z, xLen, yLen, zLen, level);
+	private TreeInterface merge() {
+		if (left.isFlyweight() && right.isFlyweight()) {
+			//System.out.println(left.isEmpty() + " " + right.isEmpty());
+			TreeInterface output = new Flyweight(x, y, z, xLen, yLen, zLen, level);
+			return output;
 		}
-		treeInterface output = new leafNode(x, y, z, xLen, yLen, zLen, level);
-		if (left.isEmpty() && right.isLeaf()) {
-			linkedList[] nodes = right.nodes();
-			for (linkedList l: nodes) {
-				linkedNode head = l.head();
+		TreeInterface output = new LeafNode(x, y, z, xLen, yLen, zLen, level);
+		if (left.isFlyweight() && right.isLeaf()) {
+			MyLinkedList[] nodes = right.nodes();
+			for (MyLinkedList l: nodes) {
+				LinkedNode head = l.head();
 				while (head != null) {
 					output = output.insert(head.value());
 					head = head.next();
@@ -160,10 +162,10 @@ public class InnerNode implements treeInterface {
 			}
 			return output;
 		}
-		if (left.isLeaf() && right.isEmpty()) {
-			linkedList[] nodes = left.nodes();
-			for (linkedList l: nodes) {
-				linkedNode head = l.head();
+		if (left.isLeaf() && right.isFlyweight()) {
+			MyLinkedList[] nodes = left.nodes();
+			for (MyLinkedList l: nodes) {
+				LinkedNode head = l.head();
 				while (head != null) {
 					output = output.insert(head.value());
 					head = head.next();
@@ -172,17 +174,17 @@ public class InnerNode implements treeInterface {
 			return output;
 		}
 		if (left.isLeaf() && right.isLeaf()) {
-			linkedList[] rightNodes = right.nodes();
-			linkedList[] leftNodes = left.nodes();
-			for (linkedList r: rightNodes) {
-				linkedNode head = r.head();
+			MyLinkedList[] rightNodes = right.nodes();
+			MyLinkedList[] leftNodes = left.nodes();
+			for (MyLinkedList r: rightNodes) {
+				LinkedNode head = r.head();
 				while (head != null) {
 					output = output.insert(head.value());
 					head = head.next();
 				}
 			}
-			for (linkedList l: leftNodes) {
-				linkedNode head = l.head();
+			for (MyLinkedList l: leftNodes) {
+				LinkedNode head = l.head();
 				while (head != null) {
 					output = output.insert(head.value());
 					head = head.next();
@@ -203,11 +205,11 @@ public class InnerNode implements treeInterface {
     	return false;
     }
     
-    public boolean isEmpty() {
+    public boolean isFlyweight() {
     	return false;
     }
     
-    public linkedList[] nodes() {
+    public MyLinkedList[] nodes() {
     	return null;
     }
 }

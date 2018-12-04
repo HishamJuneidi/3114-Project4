@@ -4,7 +4,7 @@
  * @author hishamj6, risha97
  * @version 12/02/2018
  */
-public class emptyNode implements treeInterface {
+public class Flyweight implements TreeInterface {
     
     private int x, y, z, xLen, yLen, zLen, level;
     
@@ -18,7 +18,7 @@ public class emptyNode implements treeInterface {
      * @param zLength length in z direction
      * @param l level in the tree
      */
-    public emptyNode(int newX, int newY, int newZ, int xLength, int yLength, int zLength, int l) {
+    public Flyweight(int newX, int newY, int newZ, int xLength, int yLength, int zLength, int l) {
         x = newX;
         y = newY;
         z = newZ;
@@ -31,9 +31,9 @@ public class emptyNode implements treeInterface {
     /**
      * inserts into emptynode
      */
-    public treeInterface insert(AirObject ao) {
+    public TreeInterface insert(AirObject ao) {
         // TODO Auto-generated method stub
-        leafNode output = new leafNode(x, y, z, xLen, yLen, zLen, level);
+        LeafNode output = new LeafNode(x, y, z, xLen, yLen, zLen, level);
         
         return output.insert(ao);
     }
@@ -57,7 +57,7 @@ public class emptyNode implements treeInterface {
     	return count + 1;
     }
     
-    public treeInterface delete(String name) {
+    public TreeInterface delete(String name) {
     	return this;
     }
     
@@ -69,11 +69,11 @@ public class emptyNode implements treeInterface {
     	return false;
     }
     
-    public boolean isEmpty() {
+    public boolean isFlyweight() {
     	return true;
     }
     
-    public linkedList[] nodes() {
+    public MyLinkedList[] nodes() {
     	return null;
     }
 }
