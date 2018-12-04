@@ -32,7 +32,10 @@ public class leafNode implements treeInterface {
             nodes[i] = new linkedList();
         }
     }
-
+    
+    public linkedList[] nodes() {
+    	return nodes;
+    }
     
     /**
      * inserts airobject into node
@@ -60,8 +63,6 @@ public class leafNode implements treeInterface {
                 numLocations++;
             }
         }
-        //System.out.println("numObjects: " + tempLen);
-        //System.out.println("numLocations: " + numLocations);
         if (tempLen > 3 && numLocations > 1) {
             return split();
         }
@@ -109,8 +110,6 @@ public class leafNode implements treeInterface {
         }
         count++;
         System.out.print(buffer);
-        
-        
         System.out.println("Leaf with " + numObjects + " objects:");
         linkedNode o = objects.tail();
         while (o != null) {
@@ -136,13 +135,9 @@ public class leafNode implements treeInterface {
     			linkedNode tail = l.tail();
     			while (tail != null) {
     				if (tail.intersects(x, y, z, xWidth, yWidth, zWidth)) {
-    					//System.out.println(tail.value().toString());
     					int xCoordinate; // x coordinate of intersection
 	    		    		int yCoordinate; // y coordinate of intersection
 	    		    		int zCoordinate; // z coordinate of intersection
-	    		    		/*System.out.println(x + " " + tail.value().getXorig());
-	    		    		System.out.println(y + " " + tail.value().getYorig());
-	    		    		System.out.println(z + " " + tail.value().getZorig());*/
 	    		    		if (x > tail.value().getXorig()) {
 	    		    			xCoordinate = x;
 	    		    		}
@@ -161,9 +156,6 @@ public class leafNode implements treeInterface {
 	    		    		else {
 	    		    			zCoordinate = tail.value().getZorig();
 	    		    		}
-	    		    		/*System.out.println(xCoordinate + " " + this.x + " " + (this.x + this.xLen));
-	    		    		System.out.println(yCoordinate + " " + this.y + " " + (this.y + this.yLen));
-	    		    		System.out.println(zCoordinate + " " + this.z + " " + (this.z + this.zLen));*/
 	    		    		if ((this.x <= xCoordinate && xCoordinate <= (this.x + xLen)) &&
 	    						(this.y <= yCoordinate && yCoordinate <= (this.y + yLen)) &&
 	    						(this.z <= zCoordinate && zCoordinate <= (this.z + zLen))) {
@@ -179,6 +171,34 @@ public class leafNode implements treeInterface {
     			}
     		}
     		return count;
+    }
+    
+    public treeInterface delete(String name) {
+    	for (linkedList l: nodes) {
+    		if (l.remove(name)) {
+    			break;
+    		}
+    	}
+    	int tempLen = 0;
+        for (int j = 0; j < MAX_NODES; j++) {
+            tempLen += nodes[j].length();
+        }
+        if (tempLen == 0) {
+        	return new emptyNode(x, y, z, xLen, yLen, zLen, level);
+        }
+    	return this;
+    }
+    
+    public boolean isInner() {
+    	return false;
+    }
+    
+    public boolean isLeaf() {
+    	return true;
+    }
+    
+    public boolean isEmpty() {
+    	return false;
     }
 
 }

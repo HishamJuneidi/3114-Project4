@@ -26,5 +26,15 @@ public interface treeInterface {
     public void collisions();
     
     public int intersect(int x, int y, int z, int xWidth, int yWidth, int zWidth, int count);
+    
+    public treeInterface delete(String name);
+    
+    public boolean isInner();
+    
+    public boolean isLeaf();
+    
+    public boolean isEmpty();
+    
+    public linkedList[] nodes();
 
 }

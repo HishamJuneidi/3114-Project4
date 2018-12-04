@@ -18,7 +18,7 @@ public class AirControlTest extends TestCase {
     public void testRInit() {
         AirControl recstore = new AirControl();
         assertNotNull(recstore);
-        String[] args = {"P4SampleInput.txt"};
+        String[] args = {"BigInputFile.txt"};
         AirControl.main(args);
     }
     

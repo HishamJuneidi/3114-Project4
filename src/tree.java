@@ -35,4 +35,8 @@ public class tree {
      public int intersect(int x, int y, int z, int xWidth, int yWidth, int zWidth) {
     	 	return empN.intersect(x, y, z, xWidth, yWidth, zWidth, 0);
      }
+     
+     public treeInterface delete(String name) {
+    	 return empN.delete(name);
+     }
 }

@@ -29,7 +29,7 @@ public class Parser {
 						int zWidth = Integer.parseInt(array[8]);
 						String box = "(" + x + " " + y + " " + z + " " + 
 									xWidth + " " + yWidth + " " + zWidth + ")";
-						if (xWidth <= 0 || yWidth <= 0 || zWidth == 0) {
+						if (xWidth <= 0 || yWidth <= 0 || zWidth <= 0) {
 							System.out.print("Bad box " + box + ". ");
 							System.out.println("All widths must be positive.");
 							valid = false;
@@ -139,6 +139,7 @@ public class Parser {
 					else if (array[0].equals("delete")) {
 						Boolean deleted = sl.delete(array[1]);
 						if (deleted) {
+							t.delete(array[1]);
 							System.out.print("Deleted |" + array[1] + "|");
 							System.out.println(" from the database");
 						}
@@ -153,7 +154,8 @@ public class Parser {
 						}
 						else if (array[1].equals("object")) {
 							sl.printObject(array[2]);
-						}else if (array[1].equals("bintree")) {
+						}
+						else if (array[1].equals("bintree")) {
 							int count = 0;
 							count = t.dump(count);
 							System.out.println(count + " bintree nodes printed");
@@ -175,7 +177,7 @@ public class Parser {
 						int zWidth = Integer.parseInt(array[6]);
 						String box = "(" + x + " " + y + " " + z + " " + 
 									xWidth + " " + yWidth + " " + zWidth + ")";
-						if (xWidth <= 0 || yWidth <= 0 || zWidth == 0) {
+						if (xWidth <= 0 || yWidth <= 0 || zWidth <= 0) {
 							System.out.print("Bad box " + box + ". ");
 							System.out.println("All widths must be positive.");
 						}

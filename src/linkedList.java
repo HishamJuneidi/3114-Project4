@@ -57,20 +57,28 @@ public class linkedList {
      * removes object from linked list
      * @param ao airobject being removed
      */
-    public void remove(AirObject ao) {
+    public boolean remove(String name) {
         linkedNode current = head;
-        while (current != null && !current.value().equals(ao)) {
+        while (current != null && !current.value().getName().equals(name)) {
             current = current.next();
         }
         if (current != null) {
             if (current.previous() != null) {
                 current.previous().setNext(current.next());
             }
+            else {
+            	head = current.next();
+            }
             if (current.next() != null) {
                 current.next().setPrevious(current.previous());
             }
+            else {
+            	tail = current.previous();
+            }
             length--;
+            return true;
         }
+        return false;
     }
     
     /**

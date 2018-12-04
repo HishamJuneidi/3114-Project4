@@ -50,12 +50,30 @@ public class emptyNode implements treeInterface {
     }
     
     public void collisions() {
-    		return;
+    	return;
     }
     
     public int intersect(int x, int y, int z, int xWidth, int yWidth, int zWidth, int count) {
-    		
-    		return count + 1;
+    	return count + 1;
     }
-
+    
+    public treeInterface delete(String name) {
+    	return this;
+    }
+    
+    public boolean isInner() {
+    	return false;
+    }
+    
+    public boolean isLeaf() {
+    	return false;
+    }
+    
+    public boolean isEmpty() {
+    	return true;
+    }
+    
+    public linkedList[] nodes() {
+    	return null;
+    }
 }
