@@ -1,15 +1,30 @@
-
+/**
+ * holds info for rockets
+ * 
+ * @author risha97, hishamj6
+ * @version 12/04/2018
+ */
 public class Rocket extends AirObject {
-	
-	private int x, y, z, xWidth, yWidth, zWidth, ascentRate;
-	private double trajectory;
-	
-	public Rocket(String inname) {
-		super(inname);
-		// TODO Auto-generated constructor stub
-	}
-	
-	/**
+
+    private int x;
+    private int y;
+    private int z;
+    private int xWidth;
+    private int yWidth;
+    private int zWidth;
+    private int ascentRate;
+    private double trajectory;
+
+    /**
+     * constructor for rocket
+     * 
+     * @param inname name of rocket
+     */
+    public Rocket(String inname) {
+        super(inname);
+    }
+
+    /**
      * Getter for x origin
      * 
      * @return x origin
@@ -17,7 +32,6 @@ public class Rocket extends AirObject {
     public int getXorig() {
         return x;
     }
-
 
     /**
      * Getter for x width
@@ -28,7 +42,6 @@ public class Rocket extends AirObject {
         return xWidth;
     }
 
-
     /**
      * Getter for y origin
      * 
@@ -38,17 +51,14 @@ public class Rocket extends AirObject {
         return y;
     }
 
-
     /**
      * Getter for y width
      * 
      * @return y width
      */
-
     public int getYwidth() {
         return yWidth;
     }
-
 
     /**
      * Getter for z origin
@@ -59,69 +69,111 @@ public class Rocket extends AirObject {
         return z;
     }
 
-
     /**
      * Getter for z width
      * 
      * @return z width
      */
-
     public int getZwidth() {
         return zWidth;
     }
     
+    /**
+     * sets x value
+     * @param new x
+     */
     public void setX(int newX) {
-		x = newX;
-	}
-	
-	public void setY(int newY) {
-			y = newY;
-	}
-	
-	public void setZ(int newZ) {
-			z = newZ;
-	}
-	
-	public void setXWidth(int newXWidth) {
-			xWidth = newXWidth;
-	}
-	
-	public void setYWidth(int newYWidth) {
-		yWidth = newYWidth;
-	}
-	
-	public void setZWidth(int newZWidth) {
-		zWidth = newZWidth;
-	}
-	
-	public int ascentRate() {
-		return ascentRate;
-	}
-	
-	public void setAscentRate(int ar) {
-		ascentRate = ar;
-	}
-	
-	public double trajectory() {
-		return trajectory;
-	}
-	
-	public void setTrajectory(double t) {
-		trajectory = t;
-	}
-	
-	public String toString() {
-		StringBuilder output = new StringBuilder();
-		output.append("(Rocket ");
-		output.append(this.getName() + " ");
-		output.append(this.x + " ");
-		output.append(this.y + " ");
-		output.append(this.z + " ");
-		output.append(this.xWidth + " ");
-		output.append(this.yWidth + " ");
-		output.append(this.zWidth + " ");
-		output.append(this.ascentRate + " ");
-		output.append(this.trajectory + ")");
-		return output.toString();
-	}
+        x = newX;
+    }
+    
+    /**
+     * sets y value
+     * @param new y
+     */
+    public void setY(int newY) {
+        y = newY;
+    }
+    
+    /**
+     * sets z value
+     * @param new z
+     */
+    public void setZ(int newZ) {
+        z = newZ;
+    }
+    
+    /**
+     * sets xwidth
+     * @param new xwidth
+     */
+    public void setXWidth(int newXWidth) {
+        xWidth = newXWidth;
+    }
+    
+    /**
+     * sets y width
+     * @param new y width
+     */
+    public void setYWidth(int newYWidth) {
+        yWidth = newYWidth;
+    }
+    
+    /**
+     * sets z width
+     * @param new z width
+     */
+    public void setZWidth(int newZWidth) {
+        zWidth = newZWidth;
+    }
+    
+    /**
+     * gets the ascent rate
+     * @return ascent rate
+     */
+    public int ascentRate() {
+        return ascentRate;
+    }
+    
+    /**
+     * sets ascent rate
+     * @param ar new ascent rate
+     */
+    public void setAscentRate(int ar) {
+        ascentRate = ar;
+    }
+    
+    /**
+     * gets trajectory
+     * @return trajectory
+     */
+    public double trajectory() {
+        return trajectory;
+    }
+    
+    /**
+     * sets trajectory
+     * @param t new trajectory
+     */
+    public void setTrajectory(double t) {
+        trajectory = t;
+    }
+    
+    /**
+     * turns attributes to string for printing
+     * @return string representation
+     */
+    public String toString() {
+        StringBuilder output = new StringBuilder();
+        output.append("(Rocket ");
+        output.append(this.getName() + " ");
+        output.append(this.x + " ");
+        output.append(this.y + " ");
+        output.append(this.z + " ");
+        output.append(this.xWidth + " ");
+        output.append(this.yWidth + " ");
+        output.append(this.zWidth + " ");
+        output.append(this.ascentRate + " ");
+        output.append(this.trajectory + ")");
+        return output.toString();
+    }
 }

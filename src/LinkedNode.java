@@ -6,7 +6,8 @@
  */
 public class LinkedNode {
 	private AirObject value;
-	private LinkedNode next, previous;
+	private LinkedNode next;
+	private LinkedNode previous;
 
 	/**
 	 * constructor for linked node
@@ -103,11 +104,11 @@ public class LinkedNode {
 		if (zWidth < ao.getZorig()) {
 			return false;
 		}
-		// System.out.println(ao.toString() + " collides with " + value.toString());
 		return true;
 	}
 
-	public boolean intersects(int x, int y, int z, int xWidth, int yWidth, int zWidth) {
+	public boolean intersects(int x, int y, int z, 
+			int xWidth, int yWidth, int zWidth) {
 		int xVal = value.getXorig();
 		int yVal = value.getYorig();
 		int zVal = value.getZorig();

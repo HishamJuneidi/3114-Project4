@@ -142,9 +142,13 @@ public class AirObject implements Comparable<AirObject> {
         return name;
     }
     
+    /**
+     * sets name of airobject
+     * @param n new name
+     */
     public void setName(String n) {
-		name = n;
-	}
+        name = n;
+    }
 
 
     /**

@@ -1,12 +1,21 @@
-
+/**
+ * stores info for birds
+ * @author risha97, hishamj6
+ * @version 12/04/2018
+ */
 public class Bird extends AirObject {
     
-    private int x, y, z, xWidth, yWidth, zWidth, number;
+    private int x;
+    private int y;
+    private int z;
+    private int xWidth;
+    private int yWidth;
+    private int zWidth;
+    private int number;
     private String type;
     
     public Bird(String inname) {
         super(inname);
-        // TODO Auto-generated constructor stub
     }
     
     /**
@@ -44,7 +53,6 @@ public class Bird extends AirObject {
      * 
      * @return y width
      */
-
     public int getYwidth() {
         return yWidth;
     }
@@ -72,6 +80,7 @@ public class Bird extends AirObject {
     
     /**
      * sets x coordinate
+     * @param new x coordinate
      */
     public void setX(int newX) {
         x = newX;
@@ -79,6 +88,7 @@ public class Bird extends AirObject {
     
     /**
      * sets y coordinate
+     * @param new y coordinate
      */
     public void setY(int newY) {
         y = newY;
@@ -86,6 +96,7 @@ public class Bird extends AirObject {
     
     /**
      * sets z coordinate
+     * @param new z coordinate
      */
     public void setZ(int newZ) {
         z = newZ;
@@ -93,6 +104,7 @@ public class Bird extends AirObject {
     
     /**
      * sets width in x direction
+     * @param new x width
      */
     public void setXWidth(int newXWidth) {
         xWidth = newXWidth;
@@ -100,6 +112,7 @@ public class Bird extends AirObject {
     
     /**
      * sets width in y direction
+     * @param new y width
      */
     public void setYWidth(int newYWidth) {
         yWidth = newYWidth;
@@ -107,6 +120,7 @@ public class Bird extends AirObject {
     
     /**
      * sets width in z direction
+     * @param new z width
      */
     public void setZWidth(int newZWidth) {
         zWidth = newZWidth;
@@ -147,6 +161,7 @@ public class Bird extends AirObject {
     /**
      * turns attributes of bird into
      * a string to print
+     * @return string representation
      */
     public String toString() {
         StringBuilder output = new StringBuilder();

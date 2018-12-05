@@ -6,7 +6,13 @@
  */
 public class Flyweight implements TreeInterface {
     
-    private int x, y, z, xLen, yLen, zLen, level;
+    private int x;
+    private int y;
+    private int z;
+    private int xLen;
+    private int yLen;
+    private int zLen;
+    private int level;
     
     /**
      * constructor
@@ -50,30 +56,65 @@ public class Flyweight implements TreeInterface {
     }
     
     public void collisions() {
-    	return;
+        return;
     }
     
-    public int intersect(int x, int y, int z, int xWidth, int yWidth, int zWidth, int count) {
-    	return count + 1;
+    /**
+     * gets all objects that intersect
+     * with given box
+     * @param x value of given box
+     * @param y value of given box
+     * @param z coordinate of given box
+     * @param xwidth of given box
+     * @param yWidth of given box
+     * @param zWidth of given box
+     * @param count nodes searched
+     * @param number of nodes searched
+     */
+    public int intersect(int x, int y, int z, 
+            int xWidth, int yWidth, int zWidth, int count) {
+        return count + 1;
     }
     
+    /**
+     * deletes object form interface
+     * @param object being deleted
+     * @return interface with object
+     * deleted
+     */
     public TreeInterface delete(String name) {
-    	return this;
+        return this;
     }
     
+    /**
+     * if is inner node
+     * @return true if inner
+     */
     public boolean isInner() {
-    	return false;
+        return false;
     }
     
+    /**
+     * returns if is leaf
+     * @return true if leaf
+     */
     public boolean isLeaf() {
-    	return false;
+        return false;
     }
     
+    /**
+     * returns if is flyweight
+     * @return true if flyweight
+     */
     public boolean isFlyweight() {
-    	return true;
+        return true;
     }
     
+    /**
+     * returns nodes
+     * @param list of objects in leaf
+     */
     public MyLinkedList[] nodes() {
-    	return null;
+        return null;
     }
 }

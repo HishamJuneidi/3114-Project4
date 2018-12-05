@@ -1,9 +1,23 @@
-
+/**
+ * implementation of drone
+ * @author risha97, hishamj6
+ * @version 12/04/2018
+ */
 public class Drone extends AirObject {
 	
-	private int x, y, z, xWidth, yWidth, zWidth, engines;
+	private int x;
+	private int y;
+	private int z;
+	private int xWidth;
+	private int yWidth;
+	private int zWidth;
+	private int engines;
 	private String brand;
 	
+	/**
+	 * constructor of drone
+	 * @param inname name of drone
+	 */
 	public Drone(String inname) {
 		super(inname);
 		// TODO Auto-generated constructor stub
@@ -65,53 +79,96 @@ public class Drone extends AirObject {
      * 
      * @return z width
      */
-
     public int getZwidth() {
         return zWidth;
     }
     
+    /**
+     * sets x
+     * @param new x
+     */
     public void setX(int newX) {
 		x = newX;
     }
-
+    
+    /**
+     * sets y
+     * @param new y
+     */
 	public void setY(int newY) {
 		y = newY;
 	}
 	
+	/**
+	 * sets z
+	 * @param new z
+	 */
 	public void setZ(int newZ) {
 		z = newZ;
 	}
 	
+	/**
+	 * sets x width
+	 * @param new x width
+	 */
 	public void setXWidth(int newXWidth) {
 		xWidth = newXWidth;
 	}
 	
+	/**
+	 * sets y width
+	 * @return new y width
+	 */
 	public void setYWidth(int newYWidth) {
 		yWidth = newYWidth;
 	}
 	
+	/**
+	 * sets z width
+	 * @param new z width
+	 */
 	public void setZWidth(int newZWidth) {
 		zWidth = newZWidth;
 	}
 	
+	/**
+	 * gets brand name
+	 * @return brand name
+	 */
 	public String brand() {
 		return brand;
 	}
 	
+	/**
+	 * sets brand name
+	 * @param b new brand name
+	 */
 	public void setBrand(String b) {
 		brand = b;
 	}
 	
+	/**
+	 * number of engines
+	 * @return num of engines
+	 */
 	public int engines() {
 		return engines;
 	}
 	
+	/**
+	 * sets num of engines
+	 * @param e new engine count
+	 */
 	public void setEngines(int e) {
 		engines = e;
 	}
 	
 	
-	
+	/**
+	 * puts attributes of drone into
+	 * string for printing
+	 * @return string representation
+	 */
 	public String toString() {
 		StringBuilder output = new StringBuilder();
 		output.append("(Drone ");
