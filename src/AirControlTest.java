@@ -22,6 +22,14 @@ public class AirControlTest extends TestCase {
         AirControl.main(args);
         args[0] = "P4SampleInput.txt";
         AirControl.main(args);
+        args[0] = "ManySplitInsertInput.txt";
+        AirControl.main(args);
+        args[0] = "MergeDeleteLeftToRightInput.txt";
+        AirControl.main(args);
+        args[0] = "MergeDeleteRightToLeftInput.txt";
+        AirControl.main(args);
+        args[0] = "nonexistentfile.txt";
+        AirControl.main(args);
     }
     
     /**

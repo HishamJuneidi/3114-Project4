@@ -80,7 +80,7 @@ public class Rocket extends AirObject {
     
     /**
      * sets x value
-     * @param new x
+     * @param newX new x
      */
     public void setX(int newX) {
         x = newX;
@@ -88,7 +88,7 @@ public class Rocket extends AirObject {
     
     /**
      * sets y value
-     * @param new y
+     * @param newY new y
      */
     public void setY(int newY) {
         y = newY;
@@ -96,7 +96,7 @@ public class Rocket extends AirObject {
     
     /**
      * sets z value
-     * @param new z
+     * @param newZ new z
      */
     public void setZ(int newZ) {
         z = newZ;
@@ -104,7 +104,7 @@ public class Rocket extends AirObject {
     
     /**
      * sets xwidth
-     * @param new xwidth
+     * @param newXWidth new xwidth
      */
     public void setXWidth(int newXWidth) {
         xWidth = newXWidth;
@@ -112,7 +112,7 @@ public class Rocket extends AirObject {
     
     /**
      * sets y width
-     * @param new y width
+     * @param newYWidth new y width
      */
     public void setYWidth(int newYWidth) {
         yWidth = newYWidth;
@@ -120,18 +120,10 @@ public class Rocket extends AirObject {
     
     /**
      * sets z width
-     * @param new z width
+     * @param newZWidth new z width
      */
     public void setZWidth(int newZWidth) {
         zWidth = newZWidth;
-    }
-    
-    /**
-     * gets the ascent rate
-     * @return ascent rate
-     */
-    public int ascentRate() {
-        return ascentRate;
     }
     
     /**
@@ -140,14 +132,6 @@ public class Rocket extends AirObject {
      */
     public void setAscentRate(int ar) {
         ascentRate = ar;
-    }
-    
-    /**
-     * gets trajectory
-     * @return trajectory
-     */
-    public double trajectory() {
-        return trajectory;
     }
     
     /**

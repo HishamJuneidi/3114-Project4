@@ -82,7 +82,7 @@ public class Airplane extends AirObject {
     /**
      * sets x coordinate of bottom
      * left corner
-     * @param new x
+     * @param newX new x
      */
     public void setX(int newX) {
         x = newX;
@@ -91,7 +91,7 @@ public class Airplane extends AirObject {
     /**
      * sets y coordinate of
      * bottom left corner
-     * @param new y
+     * @param newY new y
      */
     public void setY(int newY) {
         y = newY;
@@ -100,7 +100,7 @@ public class Airplane extends AirObject {
     /**
      * sets z coordinate of
      * bottom left corner
-     * @param new z
+     * @param newZ new z
      */
     public void setZ(int newZ) {
         z = newZ;
@@ -109,7 +109,7 @@ public class Airplane extends AirObject {
     /**
      * sets width in x direction of
      * box containing plane
-     * @param new x width
+     * @param newXWidth new x width
      */
     public void setXWidth(int newXWidth) {
         xWidth = newXWidth;
@@ -118,7 +118,7 @@ public class Airplane extends AirObject {
     /**
      * sets width in y direction of
      * box containing plane
-     * @param new y width
+     * @param newYWidth new y width
      */
     public void setYWidth(int newYWidth) {
         yWidth = newYWidth;
@@ -126,18 +126,10 @@ public class Airplane extends AirObject {
     /**
      * sets width in z direction
      * of box containing plane
-     * @param new z width
+     * @param newZWidth new z width
      */
     public void setZWidth(int newZWidth) {
         zWidth = newZWidth;
-    }
-    
-    /**
-     * gets the carrier of plane
-     * @return carrier
-     */
-    public String carrier() {
-        return carrier;
     }
     
     /**
@@ -149,28 +141,11 @@ public class Airplane extends AirObject {
     }
     
     /**
-     * gets number of engines
-     * @return number of engines
-     */
-    public int engines() {
-        return engines;
-    }
-    
-    /**
      * sets number of engines
      * @param e new number of engines
      */
     public void setEngines(int e) {
         engines = e;
-    }
-
-    /**
-     * gets the flight number
-     * 
-     * @return flight number
-     */
-    public int flightNumber() {
-        return flightNumber;
     }
 
     /**

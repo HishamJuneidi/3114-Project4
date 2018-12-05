@@ -1,0 +1,9 @@
+add balloon Air1 100 1010 101 924 2 900 hot_air 5
+add balloon Air2 100 1010 101 924 2 900 hot_air 5
+add balloon Air3 100 1010 101 924 2 900 hot_air 5
+add balloon Air4 100 1010 101 924 2 900 hot_air 5
+add balloon Air5 10 10 10 2 2 2 hot_air 5
+add balloon Air6 10 250 10 2 2 2 hot_air 5
+add balloon Air7 10 520 10 2 2 2 hot_air 5
+add balloon Air8 10 525 10 2 2 2 hot_air 5
+print bintree

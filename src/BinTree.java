@@ -6,9 +6,9 @@
 public class BinTree {
 
     private TreeInterface empN;
-    private int x;
-    private int y;
-    private int z;
+    private int xVal;
+    private int yVal;
+    private int zVal;
     private int length;
     private int width;
     private int height;
@@ -25,15 +25,15 @@ public class BinTree {
      * @param l starting level
      */
     public BinTree(int newX, int newY, int newZ, 
-    		int boxLength, int boxWidth, int boxHeight, int l) {
+            int boxLength, int boxWidth, int boxHeight, int l) {
         length = boxLength;
         width = boxWidth;
         height = boxHeight;
-        x = newX;
-        y = newY;
-        z = newZ;
+        xVal = newX;
+        yVal = newY;
+        zVal = newZ;
         level = l;
-        empN = new Flyweight(x, y, z, length, width, height, level);
+        empN = new Flyweight(xVal, yVal, zVal, length, width, height, level);
     }
     
     /**
@@ -74,7 +74,7 @@ public class BinTree {
      * @return number of nodes visited
      */
     public int intersect(int x, int y, int z, 
-    		int xWidth, int yWidth, int zWidth) {
+            int xWidth, int yWidth, int zWidth) {
         return empN.intersect(x, y, z, xWidth, yWidth, zWidth, 0);
     }
     
@@ -84,5 +84,61 @@ public class BinTree {
      */
     public void delete(String name) {
         empN = empN.delete(name);
+    }
+    
+    /**
+     * gets x
+     * @return x value
+     */
+    public int xVal() {
+        return xVal;
+    }
+    
+    /**
+     * gets y
+     * @return y value
+     */
+    public int yVal() {
+        return yVal;
+    }
+    
+    /**
+     * gets z
+     * @return z value
+     */
+    public int zVal() {
+        return zVal;
+    }
+    
+    /**
+     * gets length
+     * @return length
+     */
+    public int length() {
+        return length;
+    }
+    
+    /**
+     * gets height
+     * @return height
+     */
+    public int height() {
+        return height;
+    }
+    
+    /**
+     * gets width
+     * @return width
+     */
+    public int width() {
+        return width;
+    }
+    
+    /**
+     * gets level
+     * @return level
+     */
+    public int level() {
+        return level;
     }
 }

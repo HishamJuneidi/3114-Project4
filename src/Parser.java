@@ -186,6 +186,9 @@ public class Parser {
                             System.out.println(count + 
                                     " bintree nodes printed");
                         }
+                        else {
+                            System.out.println("Not valid print");
+                        }
                     }
                     else if (array[0].equals("rangeprint")) {
                         sl.rangePrint(array[1], array[2]);

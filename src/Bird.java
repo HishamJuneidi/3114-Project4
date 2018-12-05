@@ -14,6 +14,10 @@ public class Bird extends AirObject {
     private int number;
     private String type;
     
+    /**
+     * constructor for bird
+     * @param inname name of bird
+     */
     public Bird(String inname) {
         super(inname);
     }
@@ -80,7 +84,7 @@ public class Bird extends AirObject {
     
     /**
      * sets x coordinate
-     * @param new x coordinate
+     * @param newX new x coordinate
      */
     public void setX(int newX) {
         x = newX;
@@ -88,7 +92,7 @@ public class Bird extends AirObject {
     
     /**
      * sets y coordinate
-     * @param new y coordinate
+     * @param newY new y coordinate
      */
     public void setY(int newY) {
         y = newY;
@@ -96,7 +100,7 @@ public class Bird extends AirObject {
     
     /**
      * sets z coordinate
-     * @param new z coordinate
+     * @param newZ new z coordinate
      */
     public void setZ(int newZ) {
         z = newZ;
@@ -104,7 +108,7 @@ public class Bird extends AirObject {
     
     /**
      * sets width in x direction
-     * @param new x width
+     * @param newXWidth new x width
      */
     public void setXWidth(int newXWidth) {
         xWidth = newXWidth;
@@ -112,7 +116,7 @@ public class Bird extends AirObject {
     
     /**
      * sets width in y direction
-     * @param new y width
+     * @param newYWidth new y width
      */
     public void setYWidth(int newYWidth) {
         yWidth = newYWidth;
@@ -120,18 +124,10 @@ public class Bird extends AirObject {
     
     /**
      * sets width in z direction
-     * @param new z width
+     * @param newZWidth new z width
      */
     public void setZWidth(int newZWidth) {
         zWidth = newZWidth;
-    }
-    
-    /**
-     * gets the bird's number
-     * @return bird's number
-     */
-    public int number() {
-        return number;
     }
     
     /**
@@ -140,14 +136,6 @@ public class Bird extends AirObject {
      */
     public void setNumber(int n) {
         number = n;
-    }
-    
-    /**
-     * gets the bird's type
-     * @return bird's type
-     */
-    public String type() {
-        return type;
     }
     
     /**

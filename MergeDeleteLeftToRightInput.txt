@@ -1,0 +1,7 @@
+add balloon Air1 513 0 0 1 512 512 hot_air 5
+add balloon Air2 0 0 0 1 100 100 hot_air 5
+add balloon Air3 513 50 50 1 50 50 hot_air 5
+add balloon Air4 513 400 400 1 100 100 hot_air 5
+
+delete Air2
+print bintree

@@ -28,7 +28,9 @@ public class MyLinkedList {
         } 
         else {
             LinkedNode current = head;
-            while (current != null && current.value().getName().compareTo(l.value().getName()) > 0) {
+            while (current != null && 
+                    current.value().getName().
+                    compareTo(l.value().getName()) > 0) {
                 current = current.next();
             }
             if (current != null) {
@@ -114,7 +116,7 @@ public class MyLinkedList {
     /**
      * checks if a given air object collides with all objects in linked list
      * 
-     * @param ao
+     * @param ao object being checked
      * @return whether or not all objects collide
      */
     public boolean collides(AirObject ao) {
@@ -138,7 +140,8 @@ public class MyLinkedList {
      * @param yWidth length of box in y direction
      * @param zWidth length of box in z direction
      */
-    public void collissions(int x, int y, int z, int xWidth, int yWidth, int zWidth) {
+    public void collissions(int x, int y, int z, 
+            int xWidth, int yWidth, int zWidth) {
         LinkedNode first = tail;
         LinkedNode second = first.previous();
         while (first.previous() != null) {

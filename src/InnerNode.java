@@ -5,14 +5,15 @@
  */
 public class InnerNode implements TreeInterface {
 
-    private int x;
-    private int y;
-    private int z;
+    private int xVal;
+    private int yVal;
+    private int zVal;
     private int xLen;
     private int yLen;
     private int zLen;
     private int level;
-    private TreeInterface left, right;
+    private TreeInterface left;
+    private TreeInterface right;
     
     /**
      * constructor for innernode
@@ -22,41 +23,48 @@ public class InnerNode implements TreeInterface {
      * @param xLength length in x dir
      * @param yLength length in y dir
      * @param zLength length in z dir
-     * @param l
+     * @param l level
      */
-    public InnerNode(int newX, int newY, int newZ, int xLength, int yLength, int zLength, int l) {
-        x = newX;
-        y = newY;
-        z = newZ;
+    public InnerNode(int newX, int newY, int newZ, 
+            int xLength, int yLength, int zLength, int l) {
+        xVal = newX;
+        yVal = newY;
+        zVal = newZ;
         xLen = xLength;
         yLen = yLength;
         zLen = zLength;
         level = l;
         if (level % 3 == 1) {
-            left = new Flyweight(x, y, z, xLen / 2, yLen, zLen, this.level + 1);
-            right = new Flyweight(x + (xLen / 2), y, z, xLen / 2, yLen, zLen, this.level + 1);
+            left = new Flyweight(xVal, yVal, zVal, xLen / 2, 
+                    yLen, zLen, this.level + 1);
+            right = new Flyweight(xVal + (xLen / 2), yVal, zVal, 
+                    xLen / 2, yLen, zLen, this.level + 1);
         } 
         else if (level % 3 == 2) {
-            left = new Flyweight(x, y, z, xLen, yLen / 2, zLen, this.level + 1);
-            right = new Flyweight(x, y + (yLen / 2), z, xLen, yLen / 2, zLen, this.level + 1);
+            left = new Flyweight(xVal, yVal, zVal, xLen, 
+                    yLen / 2, zLen, this.level + 1);
+            right = new Flyweight(xVal, yVal + (yLen / 2), zVal, 
+                    xLen, yLen / 2, zLen, this.level + 1);
         } 
         else {
-            left = new Flyweight(x, y, z, xLen, yLen, zLen / 2, this.level + 1);
-            right = new Flyweight(x, y, z + (zLen / 2), xLen, yLen, zLen / 2, this.level + 1);
+            left = new Flyweight(xVal, yVal, zVal, xLen, 
+                    yLen, zLen / 2, this.level + 1);
+            right = new Flyweight(xVal, yVal, zVal + (zLen / 2), 
+                    xLen, yLen, zLen / 2, this.level + 1);
         }
     }
     
     /**
      * inserts object into interface
-     * @param object inserted
+     * @param ao object inserted
      * @return interface with object
      */
     public TreeInterface insert(AirObject ao) {
         // split by x axis
         if (level % 3 == 1) {
-            if (ao.getXorig() < x + (xLen / 2)) {
+            if (ao.getXorig() < xVal + (xLen / 2)) {
                 left = left.insert(ao);
-                if ((ao.getXorig() + ao.getXwidth()) >= (x + (xLen / 2))) {
+                if ((ao.getXorig() + ao.getXwidth()) >= (xVal + (xLen / 2))) {
                     right = right.insert(ao);
                 }
             } 
@@ -66,9 +74,9 @@ public class InnerNode implements TreeInterface {
         }
         // split by y axis
         else if (level % 3 == 2) {
-            if (ao.getYorig() < y + (yLen / 2)) {
+            if (ao.getYorig() < yVal + (yLen / 2)) {
                 left = left.insert(ao);
-                if ((ao.getYorig() + ao.getYwidth()) >= (y + (yLen / 2))) {
+                if ((ao.getYorig() + ao.getYwidth()) >= (yVal + (yLen / 2))) {
                     right = right.insert(ao);
                 }
             } 
@@ -78,9 +86,9 @@ public class InnerNode implements TreeInterface {
         }
         // split by z axis
         else {
-            if (ao.getZorig() < z + (zLen / 2)) {
+            if (ao.getZorig() < zVal + (zLen / 2)) {
                 left = left.insert(ao);
-                if ((ao.getZorig() + ao.getZwidth()) >= (z + (zLen / 2))) {
+                if ((ao.getZorig() + ao.getZwidth()) >= (zVal + (zLen / 2))) {
                     right = right.insert(ao);
                 }
             } 
@@ -125,8 +133,8 @@ public class InnerNode implements TreeInterface {
     
     /**
      * prints contents
-     * @param nodes printed so far
-     * @return nodes printed
+     * @param count nodes printed so far
+     * @return count nodes printed
      */
     public int dump(int count) {
         for (int i = 1; i < level; i++) {
@@ -154,65 +162,85 @@ public class InnerNode implements TreeInterface {
      * @param x value of given box
      * @param y value of given box
      * @param z coordinate of given box
-     * @param xwidth of given box
+     * @param xWidth of given box
      * @param yWidth of given box
      * @param zWidth of given box
      * @param count nodes searched
-     * @param number of nodes searched
+     * @return number of nodes searched
      */
     public int intersect(int x, int y, int z, 
             int xWidth, int yWidth, int zWidth, int count) {
         count++;
         if (level % 3 == 1) { // split by x
-            if (x < this.x + (xLen / 2)) {
-                count = left.intersect(x, y, z, xWidth, yWidth, zWidth, count);
-                if ((x + xWidth) >= this.x + (xLen / 2)) {
-                    return right.intersect(x, y, z, xWidth, yWidth, zWidth, count);
+            if (x < this.xVal + (xLen / 2)) {
+                count = left.intersect(x, y, z, 
+                        xWidth, yWidth, zWidth, count);
+                if ((x + xWidth) >= this.xVal + (xLen / 2)) {
+                    return right.intersect(x, y, z, 
+                            xWidth, yWidth, zWidth, count);
                 }
                 return count;
             } 
             else {
-                return right.intersect(x, y, z, xWidth, yWidth, zWidth, count);
+                return right.intersect(x, y, z, 
+                        xWidth, yWidth, zWidth, count);
             }
         } 
         else if (level % 3 == 2) { // split by y
-            if (y < this.y + (yLen / 2)) {
-                count = left.intersect(x, y, z, xWidth, yWidth, zWidth, count);
-                if ((y + yWidth) >= this.y + (yLen / 2)) {
-                    return right.intersect(x, y, z, xWidth, yWidth, zWidth, count);
+            if (y < this.yVal + (yLen / 2)) {
+                count = left.intersect(x, y, z, 
+                        xWidth, yWidth, zWidth, count);
+                if ((y + yWidth) >= this.yVal + (yLen / 2)) {
+                    return right.intersect(x, y, z, 
+                            xWidth, yWidth, zWidth, count);
                 }
                 return count;
             } 
             else {
-                return right.intersect(x, y, z, xWidth, yWidth, zWidth, count);
+                return right.intersect(x, y, z, 
+                        xWidth, yWidth, zWidth, count);
             }
         } 
         else { // split by z
-            if (z < this.z + (zLen / 2)) {
-                count = left.intersect(x, y, z, xWidth, yWidth, zWidth, count);
-                if ((z + zWidth) >= this.z + (zLen / 2)) {
-                    return right.intersect(x, y, z, xWidth, yWidth, zWidth, count);
+            if (z < this.zVal + (zLen / 2)) {
+                count = left.intersect(x, y, z, 
+                        xWidth, yWidth, zWidth, count);
+                if ((z + zWidth) >= this.zVal + (zLen / 2)) {
+                    return right.intersect(x, y, z, 
+                            xWidth, yWidth, zWidth, count);
                 }
                 return count;
             } 
             else {
-                return right.intersect(x, y, z, xWidth, yWidth, zWidth, count);
+                return right.intersect(x, y, z, 
+                        xWidth, yWidth, zWidth, count);
             }
         }
     }
-
+    
+    /**
+     * deletes object from interface
+     * @param name object being deleted
+     * @return interface without object
+     */
     public TreeInterface delete(String name) {
         left = left.delete(name);
         right = right.delete(name);
         return this.merge();
     }
     
+    /**
+     * merges left and right
+     * @return result of merging
+     */
     private TreeInterface merge() {
         if (left.isFlyweight() && right.isFlyweight()) {
-            TreeInterface output = new Flyweight(x, y, z, xLen, yLen, zLen, level);
+            TreeInterface output = new Flyweight(xVal, yVal, zVal, 
+                    xLen, yLen, zLen, level);
             return output;
         }
-        TreeInterface output = new LeafNode(x, y, z, xLen, yLen, zLen, level);
+        TreeInterface output = new LeafNode(xVal, yVal, zVal, 
+                xLen, yLen, zLen, level);
         if (left.isFlyweight() && right.isLeaf()) {
             MyLinkedList[] nodes = right.nodes();
             for (MyLinkedList l: nodes) {
@@ -259,18 +287,34 @@ public class InnerNode implements TreeInterface {
         return this;
     }
     
+    /**
+     * returns if is inner node
+     * @return true if inner
+     */
     public boolean isInner() {
         return true;
     }
     
+    /**
+     * returns if is leaf node
+     * @return true if leaf
+     */
     public boolean isLeaf() {
         return false;
     }
     
+    /**
+     * returns if is Flyweight
+     * @return true if flyweight
+     */
     public boolean isFlyweight() {
         return false;
     }
     
+    /**
+     * returns list of nodes
+     * @return list of airobjects
+     */
     public MyLinkedList[] nodes() {
         return null;
     }

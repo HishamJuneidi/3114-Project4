@@ -81,7 +81,7 @@ public class Balloon extends AirObject {
 
     /**
      * sets x coordinate
-     * @param new x coordinate
+     * @param newX new x coordinate
      */
     public void setX(int newX) {
         x = newX;
@@ -89,7 +89,7 @@ public class Balloon extends AirObject {
 
     /**
      * sets y coordinate
-     * @param new y coordinate
+     * @param newY new y coordinate
      */
     public void setY(int newY) {
         y = newY;
@@ -97,7 +97,7 @@ public class Balloon extends AirObject {
 
     /**
      * sets z coordinate
-     * @param new z coordinate
+     * @param newZ new z coordinate
      */
     public void setZ(int newZ) {
         z = newZ;
@@ -105,7 +105,7 @@ public class Balloon extends AirObject {
 
     /**
      * sets width in x direction
-     * @param new x width
+     * @param newXWidth new x width
      */
     public void setXWidth(int newXWidth) {
         xWidth = newXWidth;
@@ -113,7 +113,7 @@ public class Balloon extends AirObject {
 
     /**
      * sets width in y direction
-     * @param new y width
+     * @param newYWidth new y width
      */
     public void setYWidth(int newYWidth) {
         yWidth = newYWidth;
@@ -121,19 +121,10 @@ public class Balloon extends AirObject {
 
     /**
      * sets width in z direction
-     * @param new z width
+     * @param newZWidth new z width
      */
     public void setZWidth(int newZWidth) {
         zWidth = newZWidth;
-    }
-
-    /**
-     * gets balloon type
-     * 
-     * @return balloon's type
-     */
-    public String type() {
-        return type;
     }
 
     /**
@@ -143,15 +134,6 @@ public class Balloon extends AirObject {
      */
     public void setType(String t) {
         type = t;
-    }
-
-    /**
-     * gets the balloon ascent rate
-     * 
-     * @return ascent rate
-     */
-    public int ascentRate() {
-        return ascentRate;
     }
     
     /**

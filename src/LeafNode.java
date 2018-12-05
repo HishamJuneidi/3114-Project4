@@ -6,9 +6,9 @@
  */
 public class LeafNode implements TreeInterface {
 
-    private int x;
-    private int y;
-    private int z;
+    private int xVal;
+    private int yVal;
+    private int zVal;
     private int xLen;
     private int yLen;
     private int zLen;
@@ -29,9 +29,9 @@ public class LeafNode implements TreeInterface {
      */
     public LeafNode(int newX, int newY, int newZ, 
             int xLength, int yLength, int zLength, int l) {
-        x = newX;
-        y = newY;
-        z = newZ;
+        xVal = newX;
+        yVal = newY;
+        zVal = newZ;
         xLen = xLength;
         yLen = yLength;
         zLen = zLength;
@@ -41,14 +41,19 @@ public class LeafNode implements TreeInterface {
             nodes[i] = new MyLinkedList();
         }
     }
-
+    
+    /**
+     * returns list of nodes
+     * @return list of airobjects
+     * in leaf
+     */
     public MyLinkedList[] nodes() {
         return nodes;
     }
 
     /**
      * inserts airobject into node
-     * @param object being inserted
+     * @param ao object being inserted
      * @return interface with object
      */
     public TreeInterface insert(AirObject ao) {
@@ -84,7 +89,7 @@ public class LeafNode implements TreeInterface {
      * @return inner node containing 2 new nodes
      */
     private TreeInterface split() {
-        InnerNode output = new InnerNode(x, y, z, 
+        InnerNode output = new InnerNode(xVal, yVal, zVal, 
                 xLen, yLen, zLen, level);
         for (MyLinkedList l : nodes) {
             if (l.head() != null) {
@@ -100,7 +105,7 @@ public class LeafNode implements TreeInterface {
 
     /**
      * prints all objects in leaf node
-     * @param number of nodes printed
+     * @param count number of nodes printed
      * @return number of nodes printed
      */
     public int dump(int count) {
@@ -137,7 +142,7 @@ public class LeafNode implements TreeInterface {
     public void collisions() {
         for (MyLinkedList l : nodes) {
             if (l.length() > 1) {
-                l.collissions(x, y, z, xLen, yLen, zLen);
+                l.collissions(xVal, yVal, zVal, xLen, yLen, zLen);
             }
         }
     }
@@ -148,11 +153,11 @@ public class LeafNode implements TreeInterface {
      * @param x value of given box
      * @param y value of given box
      * @param z coordinate of given box
-     * @param xwidth of given box
+     * @param xWidth of given box
      * @param yWidth of given box
      * @param zWidth of given box
      * @param count nodes searched
-     * @param number of nodes searched
+     * @return number of nodes searched
      */
     public int intersect(int x, int y, int z, 
             int xWidth, int yWidth, int zWidth, int count) {
@@ -190,10 +195,14 @@ public class LeafNode implements TreeInterface {
                 else {
                     zCoordinate = tail.value().getZorig();
                 }
-                if ((this.x <= xCoordinate && xCoordinate <= (this.x + xLen))
-                        && (this.y <= yCoordinate && yCoordinate <= (this.y + yLen))
-                        && (this.z <= zCoordinate && zCoordinate <= (this.z + zLen))) {
-                    StringBuilder output = new StringBuilder(tail.value().toString());
+                if ((this.xVal <= xCoordinate && 
+                        xCoordinate <= (this.xVal + xLen))
+                        && (this.yVal <= yCoordinate && 
+                        yCoordinate <= (this.yVal + yLen))
+                        && (this.zVal <= zCoordinate && 
+                        zCoordinate <= (this.zVal + zLen))) {
+                    StringBuilder output = new 
+                            StringBuilder(tail.value().toString());
                     output.deleteCharAt(output.length() - 1);
                     output.deleteCharAt(0);
                     System.out.println(output.toString());
@@ -207,7 +216,7 @@ public class LeafNode implements TreeInterface {
     
     /**
      * deletes object from interface
-     * @param name of object being deleted
+     * @param name name of object being deleted
      * @return interface with object
      * deleted
      */
@@ -222,7 +231,7 @@ public class LeafNode implements TreeInterface {
             tempLen += nodes[j].length();
         }
         if (tempLen == 0) {
-            return new Flyweight(x, y, z, xLen, yLen, zLen, level);
+            return new Flyweight(xVal, yVal, zVal, xLen, yLen, zLen, level);
         }
         return this;
     }
